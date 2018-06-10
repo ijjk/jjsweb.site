@@ -45,8 +45,9 @@ class TypedText extends Component {
   }
 
   charIdx = 0
-  typeChild = async child => {
+  typeChild = async () => {
     await this.started()
+    let child = this.getChildren()[this.childIdx]
     const childrenType = typeof child.props.children
     let allText = false
     if (Array.isArray(child.props.children)) {
@@ -73,23 +74,26 @@ class TypedText extends Component {
     if (this.charIdx === child.props.children.length) return
     return new Promise(resolve => {
       this.timeout = setTimeout(async () => {
-        await this.typeChild(child)
+        await this.typeChild()
         resolve()
       }, this.typeSpeed)
     })
+  }
+
+  getChildren = () => {
+    let { children } = this.props
+    if (!Array.isArray(children)) children = [children]
+    return children
   }
 
   async componentDidMount() {
     if (this.state.started !== this.props.started) {
       this.setState({ started: this.props.started })
     }
-    let { children } = this.props
-    if (!Array.isArray(children)) children = [children]
-
-    for (let i = 0; i < children.length; i++) {
+    for (let i = 0; i < this.getChildren().length; i++) {
       this.childIdx = i
       this.charIdx = 0
-      await this.typeChild(children[i])
+      await this.typeChild()
     }
     this.setState({ done: true })
     this.typeDone()

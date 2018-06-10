@@ -25,6 +25,14 @@ class IndexPage extends Component {
       this.setState({ finishedIdx })
     }, 300)
   }
+  // async componentDidMount () {
+  //   const ipRes = await fetch('https://api.ipify.org')
+  //     .catch(() => ({ ok: false }))
+  //   if (ipRes.ok) {
+  //     const ip = await ipRes.text()
+  //     this.setState({ ip })
+  //   }
+  // }
   componentWillUnmount = () => clearTimeout(this.timeout)
 
   render() {
