@@ -5,6 +5,7 @@
   "author": "JJ Kasper <jj@jjsweb.site>",
   "dependencies": {
     "gatsby": "^1.9.247",
+    "gatsby-image": "^1.0.52",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-glamor": "^1.6.13",
     "gatsby-plugin-react-helmet": "^2.0.10",
@@ -13,7 +14,6 @@
     "gatsby-transformer-json": "^1.0.19",
     "gatsby-transformer-sharp": "^1.6.26",
     "glamor": "^2.20.40",
-    "particles.js": "^2.0.0",
     "react-helmet": "^5.2.0"
   },
   "keywords": [

@@ -2,8 +2,6 @@ import { keyframes } from 'glamor'
 
 export const colors = {
   bodyBg: ['#29323C', 'linear-gradient(60deg, #29323c 0%, #485563 100%)'],
-  // bodyBg: 'linear-gradient(-20deg, #2b5876 0%, #4e4376 100%)',
-  // bodyFg: '#f4f5f6',
   bodyFg: 'white',
 }
 

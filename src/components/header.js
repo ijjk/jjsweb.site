@@ -23,7 +23,7 @@ const fadeFill = keyframes('fadeLogoTxt', {
 
 const Header = () => (
   <div>
-    <div
+    <header
       css={{
         margin: '0 auto',
         padding: '10px 20px 20px',
@@ -55,7 +55,7 @@ const Header = () => (
           </svg>
         </Link>
       </h2>
-    </div>
+    </header>
   </div>
 )
 

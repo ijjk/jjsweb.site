@@ -1,7 +1,6 @@
 import { css } from 'glamor'
 import { colors, fonts, fadeIn, fadeOut, spin } from './theme'
 import 'glamor/reset'
-import './css/roboto.css'
 import './css/caveat.css'
 
 css.global('*', {
@@ -12,12 +11,12 @@ css.global('*', {
 
 css.global('body', {
   background: colors.bodyBg,
+  backgroundRepeat: 'no-repeat',
   color: colors.bodyFg,
-  ...fonts.roboto,
 })
 
 css.global('html, body, #___gatsby', {
-  height: '100%',
+  minHeight: '100%',
 })
 
 css.global('a', {

@@ -21,7 +21,10 @@
     "screensDir": "sdsrf",
     "repo": "https://github.com/ijjk/sdsrf",
     "demo": "https://sdsresearchfund.org",
-    "login": false,
+    "login": {
+      "username": "",
+      "password": "" 
+    },
     "stack": [
       { "label": "react", "link": "https://reactjs.org" },
       { "label": "gatsby", "link": "https://github.com/gatsbyjs/gatsby" },
@@ -32,7 +35,7 @@
   {
     "name": "STUDENTLIFE", 
     "screensDir": "studentlife",
-    "repo": false,
+    "repo": "",
     "demo": "https://studentlife.jjsweb.site",
     "login": {
       "username": "admin",
@@ -50,8 +53,11 @@
     "name": "Countdowns",
     "screensDir": "countdowns",
     "repo": "https://github.com/ijjk/countdowns",
-    "demo": false,
-    "login": false,
+    "demo": "",
+    "login": {
+      "username": "",
+      "password": ""
+    },
     "stack": [
       { "label": "electron", "link": "https://github.com/electron/electron" },
       { "label": "vanillajs", "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript" }
