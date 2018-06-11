@@ -45,13 +45,8 @@ class IndexPage extends Component {
       <br />,
       [
         <span key="1"> * Source code: </span>,
-        <a
-          href={repo}
-          rel="noopener noreferrer"
-          target="_blank"
-          key="2"
-        >
-         {repo}
+        <a href={repo} rel="noopener noreferrer" target="_blank" key="2">
+          {repo}
         </a>,
       ],
       [
