@@ -12,19 +12,18 @@ class TypedText extends Component {
     typeof this.props.typeDone === 'function' ? this.props.typeDone : () => {}
 
   // if typing is stopped wait for start
-  started = async () => {
-    if (this.state.started) return
+  started = () => {
     return new Promise(resolve => {
-      this.timeout = setTimeout(async () => {
-        await this.started()
-        resolve()
+      if (this.state.started) return resolve()
+      this.timeout = setTimeout(() => {
+        this.started().then(() => resolve())
       }, this.typeSpeed)
     })
   }
 
-  addChild = (child, noChild) => {
+  addChild = (child, noText) => {
     const { children } = this.state
-    const props = noChild ? {} : { children: '' }
+    const props = noText ? {} : { children: '' }
     children.push(
       React.cloneElement(child, {
         ...props,
@@ -32,6 +31,7 @@ class TypedText extends Component {
       })
     )
     this.setState({ children })
+    return noText
   }
 
   childIdx = 0
@@ -45,37 +45,41 @@ class TypedText extends Component {
   }
 
   charIdx = 0
-  typeChild = async () => {
-    await this.started()
-    let child = this.getChildren()[this.childIdx]
-    const childrenType = typeof child.props.children
-    let allText = false
-    if (Array.isArray(child.props.children)) {
-      allText = !child.props.children.some(child => typeof child !== 'string')
-      child = React.cloneElement(child, {
-        children: child.props.children.join(' '),
-      })
-    }
-    if (childrenType !== 'string' && !allText) {
-      // child doesn't have text so just add it
-      return this.addChild(child, true)
-    }
-    const chars = child.props.children
-    if (this.charIdx === 0) {
-      // add child to state so we can update it
-      this.addChild(child)
-    }
-    this.addChar(chars[this.charIdx])
-    await this.nextChar(child)
+  typeChild = () => {
+    let child, chars
+    return new Promise(resolve => {
+      this.started()
+        .then(() => {
+          child = this.getChildren()[this.childIdx]
+          chars = child.props.children
+          let isText = typeof chars === 'string'
+          if (!isText && Array.isArray(child.props.children)) {
+            isText = !child.props.children.some(
+              child => typeof child !== 'string'
+            )
+            chars = chars.join(' ')
+          }
+          if (!isText || this.charIdx === 0) {
+            return this.addChild(child, !isText)
+          }
+        })
+        .then(done => {
+          if (done) return
+          this.addChar(chars[this.charIdx])
+          return this.nextChar(chars)
+        })
+        .then(() => resolve())
+    })
   }
 
-  nextChar = async child => {
-    this.charIdx++
-    if (this.charIdx === child.props.children.length) return
+  nextChar = chars => {
     return new Promise(resolve => {
-      this.timeout = setTimeout(async () => {
-        await this.typeChild()
-        resolve()
+      this.charIdx++
+      if (this.charIdx === chars.length) {
+        return resolve()
+      }
+      this.timeout = setTimeout(() => {
+        this.typeChild().then(() => resolve())
       }, this.typeSpeed)
     })
   }
@@ -86,17 +90,24 @@ class TypedText extends Component {
     return children
   }
 
-  async componentDidMount() {
+  typeOne = () => {
+    return this.typeChild().then(() => {
+      this.childIdx++
+      this.charIdx = 0
+      if (this.childIdx < this.getChildren().length) {
+        return this.typeOne()
+      }
+    })
+  }
+
+  componentDidMount() {
     if (this.state.started !== this.props.started) {
       this.setState({ started: this.props.started })
     }
-    for (let i = 0; i < this.getChildren().length; i++) {
-      this.childIdx = i
-      this.charIdx = 0
-      await this.typeChild()
-    }
-    this.setState({ done: true })
-    this.typeDone()
+    this.typeOne().then(() => {
+      this.setState({ done: true })
+      this.typeDone()
+    })
   }
 
   componentWillUnmount() {
@@ -104,7 +115,7 @@ class TypedText extends Component {
     this.setState({ started: false })
   }
 
-  // async getDerivedStateFromProps (nextProps, state) {
+  // static getDerivedStateFromProps (nextProps, state) {
   componentWillReceiveProps(nextProps, state) {
     if (nextProps.started !== this.state.started) {
       return this.setState({ started: nextProps.started })
