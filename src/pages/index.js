@@ -33,7 +33,7 @@ class IndexPage extends Component {
   //     this.setState({ ip })
   //   }
   // }
-  componentWillUnmount () {
+  componentWillUnmount() {
     clearTimeout(this.timeout)
   }
 
@@ -54,8 +54,10 @@ class IndexPage extends Component {
         </a>,
       ],
       [
-        <span key='1'> * Contact: JJ Kasper </span>,
-        <a key='2' href='mailto:jj@jjsweb.site'>{'<jj@jjsweb.site>'}</a>,
+        <span key="1"> * Contact: JJ Kasper </span>,
+        <a key="2" href="mailto:jj@jjsweb.site">
+          {'<jj@jjsweb.site>'}
+        </a>,
       ],
       <br />,
       <span>
