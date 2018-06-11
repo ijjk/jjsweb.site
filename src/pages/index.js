@@ -19,7 +19,7 @@ class IndexPage extends Component {
       this.timeout = setTimeout(() => {
         this.setState({ done: true })
         this.timeout = setTimeout(() => navigateTo('/home'), 360)
-      }, 800)
+      }, 1000)
     }
     this.timeout = setTimeout(() => {
       this.setState({ finishedIdx })
@@ -33,7 +33,9 @@ class IndexPage extends Component {
   //     this.setState({ ip })
   //   }
   // }
-  componentWillUnmount = () => clearTimeout(this.timeout)
+  componentWillUnmount () {
+    clearTimeout(this.timeout)
+  }
 
   render() {
     const { loading, done, finishedIdx, ip } = this.state
@@ -51,7 +53,10 @@ class IndexPage extends Component {
           https://github.com/ijjk/jjsweb-site
         </a>,
       ],
-      <span> * Contact: JJ Kasper {'<jj@jjsweb.site>'}</span>,
+      [
+        <span key='1'> * Contact: JJ Kasper </span>,
+        <a key='2' href='mailto:jj@jjsweb.site'>{'<jj@jjsweb.site>'}</a>,
+      ],
       <br />,
       <span>
         Last login: {new Date().toString()} from {ip}

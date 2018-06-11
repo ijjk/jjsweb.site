@@ -2,13 +2,14 @@
   "name": "jjsweb-site",
   "description": "My website",
   "version": "1.0.0",
-  "author": "JJ Kasper <jj@jjsweb.site",
+  "author": "JJ Kasper <jj@jjsweb.site>",
   "dependencies": {
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-glamor": "^1.6.13",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "glamor": "^2.20.40",
+    "particles.js": "^2.0.0",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
@@ -16,7 +17,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --noUglify",
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --write 'src/**/*.js'",

@@ -1,5 +1,6 @@
 import { css } from 'glamor'
 import { colors, fonts, fadeIn, fadeOut, spin } from './theme'
+import 'glamor/reset'
 import './css/roboto.css'
 import './css/caveat.css'
 

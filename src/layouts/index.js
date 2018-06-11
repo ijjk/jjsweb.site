@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
 import '../style/global'
 
-const Layout = ({ children, data }) => (
+const Layout = ({ children }) => (
   <div style={{ height: '100%' }}>{children()}</div>
 )
 

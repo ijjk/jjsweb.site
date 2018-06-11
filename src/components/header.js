@@ -35,12 +35,12 @@ const Header = () => (
             <text
               x="10"
               y="50"
-              fill="none"
-              stroke="white"
-              strokeWidth="1"
-              fontSize="60"
-              fontFamily={fonts.caveat.fontFamily}
               css={{
+                ...fonts.caveat,
+                fontSize: 60,
+                strokeWidth: 1,
+                stroke: 'white',
+                fill: 'none',
                 strokeDasharray: 1000,
                 strokeDashoffset: 1000,
                 animation:

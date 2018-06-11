@@ -8,8 +8,8 @@ class TypedText extends Component {
     done: false,
   }
   typeSpeed = this.props.typeSpeed || 35 // the time per char
-  typeDone =
-    typeof this.props.typeDone === 'function' ? this.props.typeDone : () => {} // callback when done typing
+  typeDone = // callback when done typing
+    typeof this.props.typeDone === 'function' ? this.props.typeDone : () => {} 
 
   // if typing is stopped wait for start
   started = async () => {
