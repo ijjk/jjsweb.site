@@ -39,18 +39,19 @@ class IndexPage extends Component {
 
   render() {
     const { loading, done, finishedIdx, ip } = this.state
+    const repo = 'https://github.com/ijjk/jjsweb.site'
     const typedLines = [
       <span>Welcome to jjsweb.site v1.0.0 (gatsbyjs/gatsby v1.9.247)</span>,
       <br />,
       [
         <span key="1"> * Source code: </span>,
         <a
-          href="https://github.com/ijjk/jjsweb-site"
+          href={repo}
           rel="noopener noreferrer"
           target="_blank"
           key="2"
         >
-          https://github.com/ijjk/jjsweb-site
+         {repo}
         </a>,
       ],
       [

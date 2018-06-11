@@ -1,0 +1,60 @@
+[
+  {
+    "name": "MYKB",
+    "screensDir": "mykb",
+    "repo": "https://github.com/ijjk/mykb",
+    "demo": "https://mykb.jjsweb.site",
+    "login": {
+      "username": "notadmin",
+      "password": "secretpass"
+    },
+    "stack": [
+      { "label": "sass", "link": "https://sass-lang.com/" },
+      { "label": "react", "link": "https://reactjs.org" },
+      { "label": "next.js", "link": "https://github.com/zeit/next.js" },
+      { "label": "feathersjs", "link": "https://feathersjs.com/" },
+      { "label": "markdown", "link": "https://en.wikipedia.org/wiki/Markdown" }
+    ]
+  },
+  {
+    "name": "SDS Research Fund",
+    "screensDir": "sdsrf",
+    "repo": "https://github.com/ijjk/sdsrf",
+    "demo": "https://sdsresearchfund.org",
+    "login": false,
+    "stack": [
+      { "label": "react", "link": "https://reactjs.org" },
+      { "label": "gatsby", "link": "https://github.com/gatsbyjs/gatsby" },
+      { "label": "glamor", "link": "https://github.com/threepointone/glamor" },
+      { "label": "markdown", "link": "https://en.wikipedia.org/wiki/Markdown" }
+    ]
+  },
+  {
+    "name": "STUDENTLIFE", 
+    "screensDir": "studentlife",
+    "repo": false,
+    "demo": "https://studentlife.jjsweb.site",
+    "login": {
+      "username": "admin",
+      "password": "pass"
+    },
+    "stack": [
+      { "label": "react", "link": "https://reactjs.org" },
+      { "label": "redux", "link": "https://redux.js.org" },
+      { "label": "sass", "link": "https://sass-lang.com" },
+      { "label": "feathersjs", "link": "https://feathersjs.com/" },
+      { "label": "mongodb", "link": "https://www.mongodb.com/" }
+    ]
+  },
+  {
+    "name": "Countdowns",
+    "screensDir": "countdowns",
+    "repo": "https://github.com/ijjk/countdowns",
+    "demo": false,
+    "login": false,
+    "stack": [
+      { "label": "electron", "link": "https://github.com/electron/electron" },
+      { "label": "vanillajs", "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript" }
+    ]
+  }
+]
