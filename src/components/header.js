@@ -26,7 +26,7 @@ const Header = () => (
     <header
       css={{
         margin: '0 auto',
-        padding: '10px 20px 20px',
+        padding: '10px 20px 15px',
       }}
     >
       <h2 css={{ margin: 0 }}>

@@ -1,5 +1,5 @@
 import { css } from 'glamor'
-import { colors, fonts, fadeIn, fadeOut, spin } from './theme'
+import { colors, fadeIn, fadeOut, spin } from './theme'
 import 'glamor/reset'
 import './css/caveat.css'
 
@@ -13,6 +13,7 @@ css.global('body', {
   background: colors.bodyBg,
   backgroundRepeat: 'no-repeat',
   color: colors.bodyFg,
+  fontFamily: 'monospace',
 })
 
 css.global('html, body, #___gatsby', {

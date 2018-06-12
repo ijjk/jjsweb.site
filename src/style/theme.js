@@ -17,6 +17,15 @@ export const fonts = {
   },
 }
 
+export const media = {
+  greaterThan(size) {
+    return `@media (min-width: ${size}px)`
+  },
+  lessThan(size) {
+    return `@media (max-width: ${size - 1}px)`
+  },
+}
+
 export const fadeIn = keyframes('fadeIn', {
   from: {
     opacity: 0,

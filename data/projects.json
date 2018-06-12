@@ -2,6 +2,7 @@
   {
     "name": "MYKB",
     "screensDir": "mykb",
+    "blurb": "MYKB is a file system/markdown based knowledge base editor/viewer. MYKB helps manage markdown based files in a webui with automatic git committing.",
     "repo": "https://github.com/ijjk/mykb",
     "demo": "https://mykb.jjsweb.site",
     "login": {
@@ -19,11 +20,12 @@
   {
     "name": "SDS Research Fund",
     "screensDir": "sdsrf",
+    "blurb": "SDS Research Fund is a non-profit that hopes to increase the funds being raised for research towards a cure for Shwachman Diamond Syndrome.",
     "repo": "https://github.com/ijjk/sdsrf",
     "demo": "https://sdsresearchfund.org",
     "login": {
       "username": "",
-      "password": "" 
+      "password": ""
     },
     "stack": [
       { "label": "react", "link": "https://reactjs.org" },
@@ -35,7 +37,8 @@
   {
     "name": "STUDENTLIFE", 
     "screensDir": "studentlife",
-    "repo": "",
+    "blurb": "STUDENTLIFE is a school based social network to get updated on news from other students and teachers, and to access opportunities and resources.",
+    "repo": "https://github.com/ijjk/stuentlife",
     "demo": "https://studentlife.jjsweb.site",
     "login": {
       "username": "admin",
@@ -52,6 +55,7 @@
   {
     "name": "Countdowns",
     "screensDir": "countdowns",
+    "blurb": "Countdowns is a customizable countdowns app",
     "repo": "https://github.com/ijjk/countdowns",
     "demo": "",
     "login": {
