@@ -1,6 +1,20 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
+const stack = {
+  electron: 'https://github.com/electron/electron',
+  feathersjs: 'https://feathersjs.com/',
+  gatsby: 'https://github.com/gatsbyjs/gatsby',
+  glamor: 'https://github.com/threepointone/glamor',
+  markdown: 'https://en.wikipedia.org/wiki/Markdown',
+  mongodb: 'https://www.mongodb.com/',
+  'next.js': 'https://github.com/zeit/next.js',
+  react: 'https://reactjs.org',
+  redux: 'https://redux.js.org',
+  sass: 'https://sass-lang.com',
+  vanillajs: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+}
+
 const Project = ({ imgs, data, ...props }) => {
   const inline = { display: 'inline' }
   const stackItem = {
@@ -10,10 +24,10 @@ const Project = ({ imgs, data, ...props }) => {
     display: 'inline-block',
     background: 'rgba(0, 0, 0, 0.8)',
     borderRadius: 4,
-    transition: 'box-shadow 350ms ease-in-out',
+    transition: 'box-shadow 150ms ease-in-out',
     boxShadow: '2px 4px 6px rgba(0, 0, 0, 0.25)',
     ':hover': {
-      boxShadow: '4px 6px 8px rgba(0, 0, 0, 0.25)',
+      boxShadow: '4px 6px 8px rgba(0, 0, 0, 0.5)',
     },
   }
   return (
@@ -29,8 +43,13 @@ const Project = ({ imgs, data, ...props }) => {
       <div>
         <p css={{ fontSize: 16, marginBottom: 5 }}>{data.blurb}</p>
         {data.stack.map(item => (
-          <a href={item.link} target="_blank" rel="noopener noreferrer">
-            <div css={stackItem}>{item.label}</div>
+          <a
+            href={stack[item]}
+            key={item}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div css={stackItem}>{item}</div>
           </a>
         ))}
       </div>

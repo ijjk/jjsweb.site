@@ -115,25 +115,25 @@ class TypedText extends Component {
     this.setState({ started: false })
   }
 
-  // static getDerivedStateFromProps (nextProps, state) {
   componentWillReceiveProps(nextProps, state) {
     if (nextProps.started !== this.state.started) {
       return this.setState({ started: nextProps.started })
     }
-    // if (nextProps.started && !state.started) {
-    // return { started: true }
-    // }
-    // return null
   }
 
   render() {
-    let { className, typingClassName, finishedClassName } = this.props
+    let { className, typingClassName, finishedClassName, wrapEl } = this.props
     const { children, done } = this.state
     if (done) typingClassName = ''
-    if (finishedClassName === typingClassName) finishedClassName = ''
-    className = className || ''
-    className += ' ' + typingClassName + ' ' + finishedClassName
-    return <p {...{ className }}>{children}</p>
+    return React.createElement(wrapEl || 'p', {
+      className:
+        (className || '') +
+        ' ' +
+        (typingClassName || '') +
+        ' ' +
+        (finishedClassName || ''),
+      children,
+    })
   }
 }
 

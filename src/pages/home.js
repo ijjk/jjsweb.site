@@ -68,10 +68,7 @@ export const query = graphql`
             username
             password
           }
-          stack {
-            label
-            link
-          }
+          stack
         }
       }
     }

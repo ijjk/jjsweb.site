@@ -2,7 +2,7 @@
   {
     "name": "MYKB",
     "screensDir": "mykb",
-    "blurb": "MYKB is a file system/markdown based knowledge base editor/viewer. MYKB helps manage markdown based files in a webui with automatic git committing.",
+    "blurb": "MYKB is a file system/markdown based knowledge base editor/viewer. MYKB helps manage personal markdown based docs in a webui with automatic git committing.",
     "repo": "https://github.com/ijjk/mykb",
     "demo": "https://mykb.jjsweb.site",
     "login": {
@@ -10,11 +10,11 @@
       "password": "secretpass"
     },
     "stack": [
-      { "label": "sass", "link": "https://sass-lang.com/" },
-      { "label": "react", "link": "https://reactjs.org" },
-      { "label": "next.js", "link": "https://github.com/zeit/next.js" },
-      { "label": "feathersjs", "link": "https://feathersjs.com/" },
-      { "label": "markdown", "link": "https://en.wikipedia.org/wiki/Markdown" }
+      "sass",
+      "react",
+      "next.js",
+      "feathersjs",
+      "markdown"
     ]
   },
   {
@@ -28,10 +28,10 @@
       "password": ""
     },
     "stack": [
-      { "label": "react", "link": "https://reactjs.org" },
-      { "label": "gatsby", "link": "https://github.com/gatsbyjs/gatsby" },
-      { "label": "glamor", "link": "https://github.com/threepointone/glamor" },
-      { "label": "markdown", "link": "https://en.wikipedia.org/wiki/Markdown" }
+      "glamor",
+      "react",
+      "gatsby",
+      "markdown"
     ]
   },
   {
@@ -45,17 +45,17 @@
       "password": "pass"
     },
     "stack": [
-      { "label": "react", "link": "https://reactjs.org" },
-      { "label": "redux", "link": "https://redux.js.org" },
-      { "label": "sass", "link": "https://sass-lang.com" },
-      { "label": "feathersjs", "link": "https://feathersjs.com/" },
-      { "label": "mongodb", "link": "https://www.mongodb.com/" }
+      "react",
+      "redux",
+      "sass",
+      "feathersjs",
+      "mongodb"
     ]
   },
   {
     "name": "Countdowns",
     "screensDir": "countdowns",
-    "blurb": "Countdowns is a customizable countdowns app",
+    "blurb": "Countdowns is a customizable countdowns app that helps you keep track of the amount of time until a certain date.",
     "repo": "https://github.com/ijjk/countdowns",
     "demo": "",
     "login": {
@@ -63,8 +63,8 @@
       "password": ""
     },
     "stack": [
-      { "label": "electron", "link": "https://github.com/electron/electron" },
-      { "label": "vanillajs", "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript" }
+      "electron",
+      "vanillajs"
     ]
   }
 ]

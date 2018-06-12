@@ -14,10 +14,7 @@ css.global('body', {
   backgroundRepeat: 'no-repeat',
   color: colors.bodyFg,
   fontFamily: 'monospace',
-})
-
-css.global('html, body, #___gatsby', {
-  minHeight: '100%',
+  minHeight: '100vh',
 })
 
 css.global('a', {

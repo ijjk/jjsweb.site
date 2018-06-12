@@ -6,7 +6,7 @@ import TypedText from '../components/typedText'
 const NotFoundPage = () => {
   const css = { marginBottom: 15 }
   return (
-    <Page key="page">
+    <Page key="page" noFooter>
       <div
         css={{ textAlign: 'center', fontFamily: 'monospace', margin: '10% 0' }}
       >
