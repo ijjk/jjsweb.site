@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Img from 'gatsby-image'
+import React from 'react'
+import Slideshow from './slideshow'
 
 const stack = {
   electron: 'https://github.com/electron/electron',
@@ -29,41 +29,40 @@ const stackItem = {
     boxShadow: '4px 6px 8px rgba(0, 0, 0, 0.5)',
   },
 }
-
-class Project extends Component {
-  render() {
-    const { imgs, data, ...props } = this.props
-    return (
-      <div {...props}>
-        <h4 css={{ wordWrap: 'break' }}>{data.name}</h4>
-        <Img
-          sizes={imgs[0].node.childImageSharp.sizes}
-          css={{
-            margin: '10px 0',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.25)',
-          }}
-        />
-        <div>
-          <p css={{ fontSize: 16, marginBottom: 5 }}>{data.blurb}</p>
-          <ul css={{ listStyle: 'none' }}>
-            {data.stack.map(item => (
-              <li css={{ display: 'inline-block' }} key={item}>
-                <a
-                  href={stack[item]}
-                  key={item}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  css={stackItem}
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    )
-  }
-}
+const Project = ({ imgs, data, ...props }) => (
+  <div
+    {...props}
+    css={{
+      position: 'relative',
+    }}
+  >
+    <h4 css={{ wordWrap: 'break' }}>{data.name}</h4>
+    <Slideshow
+      {...{ imgs }}
+      css={{
+        margin: '10px 0',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.25)',
+      }}
+    />
+    <div>
+      <p css={{ fontSize: 16, marginBottom: 5 }}>{data.blurb}</p>
+      <ul css={{ listStyle: 'none' }}>
+        {data.stack.map(item => (
+          <li css={{ display: 'inline-block' }} key={item}>
+            <a
+              href={stack[item]}
+              key={item}
+              target="_blank"
+              rel="noopener noreferrer"
+              css={stackItem}
+            >
+              {item}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+)
 
 export default Project

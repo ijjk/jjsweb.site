@@ -44,7 +44,10 @@ export default Home
 
 export const query = graphql`
   query HomeQ {
-    imgs: allFile(filter:{absolutePath:{regex: "/data\/.*\\.(jpg|jpeg|png)/"}}) {
+    imgs: allFile(
+      filter:{absolutePath:{regex: "/data\/.*\\.(jpg|jpeg|png)/"}},
+      sort: { fields: [relativePath], order: ASC }
+    ) {
       edges {
         node {
           relativePath
