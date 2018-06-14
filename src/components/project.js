@@ -19,9 +19,10 @@ const stackItem = {
   cursor: 'pointer',
   padding: '8px 10px',
   margin: '5px 5px 5px 0',
-  display: 'inline-block',
+  display: 'block',
   background: 'rgba(0, 0, 0, 0.8)',
   borderRadius: 4,
+  textDecoration: 'none',
   transition: 'box-shadow 150ms ease-in-out',
   boxShadow: '2px 4px 6px rgba(0, 0, 0, 0.25)',
   ':hover': {
@@ -44,16 +45,21 @@ class Project extends Component {
         />
         <div>
           <p css={{ fontSize: 16, marginBottom: 5 }}>{data.blurb}</p>
-          {data.stack.map(item => (
-            <a
-              href={stack[item]}
-              key={item}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div css={stackItem}>{item}</div>
-            </a>
-          ))}
+          <ul css={{ listStyle: 'none' }}>
+            {data.stack.map(item => (
+              <li css={{ display: 'inline-block' }} key={item}>
+                <a
+                  href={stack[item]}
+                  key={item}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  css={stackItem}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     )

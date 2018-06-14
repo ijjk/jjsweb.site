@@ -6,6 +6,7 @@ import '../style/global'
 const Layout = ({ children }) => (
   <div>
     <Helmet title="Welcome - jjsweb.site">
+      <html lang="en" />
       <link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-57x57.png" />
       <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png" />
       <link
@@ -46,6 +47,8 @@ const Layout = ({ children }) => (
       <meta name="msapplication-TileColor" content="#29323C" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
       <meta name="theme-color" content="#ffffff" />
+      <meta name="description" content="JJ Kasper's website" />
+      <meta name="author" content="JJ Kasper" />
     </Helmet>
     {children()}
   </div>

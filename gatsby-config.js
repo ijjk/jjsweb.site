@@ -1,6 +1,9 @@
 const path = require('path') 
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: 'https://jjsweb.site',
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-no-sourcemaps',
@@ -10,6 +13,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-json`,
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
