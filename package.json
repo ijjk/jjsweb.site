@@ -3,29 +3,40 @@
   "description": "My website",
   "version": "1.0.0",
   "author": "JJ Kasper <jj@jjsweb.site>",
-  "dependencies": {
-    "gatsby": "^1.9.247",
-    "gatsby-image": "^1.0.52",
-    "gatsby-link": "^1.6.40",
-    "gatsby-plugin-glamor": "^1.6.13",
-    "gatsby-plugin-react-helmet": "^2.0.10",
-    "gatsby-plugin-sharp": "^1.6.47",
-    "gatsby-source-filesystem": "^1.5.38",
-    "gatsby-transformer-json": "^1.0.19",
-    "gatsby-transformer-sharp": "^1.6.26",
-    "glamor": "^2.20.40",
-    "react-helmet": "^5.2.0"
-  },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "react",
+    "glamor"
+  ],
+  "browserslist": [
+    "> 1%",
+    "IE >= 9",
+    "last 2 versions"
+  ],
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "gatsby": "^1.9.247",
+    "gatsby-image": "^1.0.52",
+    "gatsby-link": "^1.6.40",
+    "gatsby-plugin-glamor": "^1.6.13",
+    "gatsby-plugin-netlify": "^1.0.21",
+    "gatsby-plugin-no-sourcemaps": "^1.0.5",
+    "gatsby-plugin-nprogress": "^1.0.14",
+    "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby-plugin-react-next": "^1.0.11",
+    "gatsby-plugin-sharp": "^1.6.47",
+    "gatsby-source-filesystem": "^1.5.38",
+    "gatsby-transformer-json": "^1.0.19",
+    "gatsby-transformer-sharp": "^1.6.26",
+    "glamor": "^2.20.40",
+    "react-helmet": "^5.2.0"
   },
   "devDependencies": {
     "prettier": "^1.12.0",

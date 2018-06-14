@@ -4,14 +4,32 @@ import PropTypes from 'prop-types'
 class TypedText extends Component {
   state = {
     children: [],
-    started: false,
+    started: true,
     done: false,
   }
-  typeSpeed = this.props.typeSpeed || 35 // the time per char
-  typeDone = // callback when done typing
-    typeof this.props.typeDone === 'function' ? this.props.typeDone : () => {}
 
-  // if typing is stopped wait for start
+  getChildren = () => {
+    let { children } = this.props
+    if (typeof children === 'undefined') return []
+    if (!Array.isArray(children)) children = [children]
+    return children
+  }
+
+  addChild = child =>
+    this.setState({
+      children: this.state.children.concat(child),
+    })
+
+  addChar = (char, child) => {
+    const { children } = this.state
+    const isFirst = Boolean(child)
+    child = child || children[this.childIdx]
+    children[this.childIdx] = React.cloneElement(child, {
+      children: isFirst ? char : child.props.children + char,
+    })
+    this.setState({ children })
+  }
+
   started = () => {
     return new Promise(resolve => {
       if (this.state.started) return resolve()
@@ -21,129 +39,93 @@ class TypedText extends Component {
     })
   }
 
-  addChild = (child, noText) => {
-    const { children } = this.state
-    const props = noText ? {} : { children: '' }
-    children.push(
-      React.cloneElement(child, {
-        ...props,
-        key: this.childIdx,
-      })
-    )
-    this.setState({ children })
-    return noText
-  }
-
-  childIdx = 0
-  addChar = char => {
-    const { children } = this.state
-    const child = children[this.childIdx]
-    children[this.childIdx] = React.cloneElement(child, {
-      children: child.props.children + char,
-    })
-    this.setState({ children })
-  }
-
-  charIdx = 0
-  typeChild = () => {
-    let child, chars
+  typeWait = () => {
     return new Promise(resolve => {
-      this.started()
-        .then(() => {
-          child = this.getChildren()[this.childIdx]
-          chars = child.props.children
-          let isText = typeof chars === 'string'
-          if (!isText && Array.isArray(child.props.children)) {
-            isText = !child.props.children.some(
-              child => typeof child !== 'string'
-            )
-            chars = chars.join(' ')
-          }
-          if (!isText || this.charIdx === 0) {
-            return this.addChild(child, !isText)
-          }
-        })
-        .then(done => {
-          if (done) return
-          this.addChar(chars[this.charIdx])
-          return this.nextChar(chars)
-        })
-        .then(() => resolve())
-    })
-  }
-
-  nextChar = chars => {
-    return new Promise(resolve => {
-      this.charIdx++
-      if (this.charIdx === chars.length) {
-        return resolve()
-      }
       this.timeout = setTimeout(() => {
-        this.typeChild().then(() => resolve())
+        resolve()
       }, this.typeSpeed)
     })
   }
 
-  getChildren = () => {
-    let { children } = this.props
-    if (!Array.isArray(children)) children = [children]
-    return children
+  nextChild = () => {
+    this.charIdx = 0
+    this.childIdx++
+    return this.typeWait().then(() => this.typeChild())
   }
 
-  typeOne = () => {
-    return this.typeChild().then(() => {
-      this.childIdx++
-      this.charIdx = 0
-      if (this.childIdx < this.getChildren().length) {
-        return this.typeOne()
+  nextChar = () => {
+    this.charIdx++
+    return this.typeWait().then(() => this.typeChild())
+  }
+
+  typeChild = () => {
+    const children = this.getChildren()
+    if (this.childIdx === children.length) {
+      return Promise.resolve()
+    }
+    return this.started().then(() => {
+      const curChild = children[this.childIdx]
+      let chars = curChild.props ? curChild.props.children : null
+      let hasText = typeof chars === 'string'
+      // check if has text but is split into an array
+      if (Array.isArray(chars)) {
+        hasText = !chars.some(item => typeof item !== 'string')
+        chars = chars.join(' ')
       }
+      if (!hasText) {
+        this.addChild(curChild)
+        return this.nextChild()
+      }
+      const isFirstChar = this.charIdx === 0
+      const isLastChar = this.charIdx === chars.length
+
+      if (isLastChar) {
+        return this.nextChild()
+      } else if (isFirstChar) {
+        this.addChild(curChild)
+      }
+      this.addChar(chars[this.charIdx], isFirstChar ? curChild : false)
+      return this.nextChar()
     })
   }
 
   componentDidMount() {
-    if (this.state.started !== this.props.started) {
-      this.setState({ started: this.props.started })
-    }
-    this.typeOne().then(() => {
+    this.childIdx = 0
+    this.charIdx = 0
+    this.typeChild().then(() => {
       this.setState({ done: true })
-      this.typeDone()
+      if (typeof this.props.finished === 'function') {
+        this.props.finished()
+      }
     })
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.timeout)
-    this.setState({ started: false })
+  updateState = props => {
+    const { started, typeSpeed } = props || this.props
+    this.typeSpeed = typeSpeed || 35
+    this.setState({ started })
   }
-
-  componentWillReceiveProps(nextProps, state) {
-    if (nextProps.started !== this.state.started) {
-      return this.setState({ started: nextProps.started })
-    }
-  }
+  componentWillMount = this.updateState
+  componentWillReceiveProps = this.updateState
+  componentWillUnmount = () => clearTimeout(this.timeout)
 
   render() {
-    let { className, typingClassName, finishedClassName, wrapEl } = this.props
-    const { children, done } = this.state
-    if (done) typingClassName = ''
-    return React.createElement(wrapEl || 'p', {
-      className:
-        (className || '') +
-        ' ' +
-        (typingClassName || '') +
-        ' ' +
-        (finishedClassName || ''),
-      children,
+    const { className, nonTyped, wrapEl } = this.props
+    let { children } = this.state
+    return React.createElement(wrapEl ? wrapEl : 'div', {
+      children: children.concat(nonTyped),
+      className,
     })
   }
 }
 
 TypedText.propTypes = {
   className: PropTypes.any, // allow object className from glamor
-  typingClassName: PropTypes.any,
-  finishedClassName: PropTypes.any,
   started: PropTypes.bool,
-  typeDone: PropTypes.func,
   typeSpeed: PropTypes.number,
+  finished: PropTypes.func,
+  nonTyped: PropTypes.array, // elements that appear without being typed
+  wrapEl: PropTypes.string, // element type for parent element
 }
 
 export default TypedText

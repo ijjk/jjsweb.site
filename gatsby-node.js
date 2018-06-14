@@ -4,4 +4,9 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
- // You can delete this file if you're not using it
+exports.onPreBuild = () => {
+  global.netlifyProps = {
+    'data-netlify': 'true',
+    'netlify-honeypot': 'somefield'
+  }
+}

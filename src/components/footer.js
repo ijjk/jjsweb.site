@@ -1,10 +1,76 @@
 import React from 'react'
-import { media, colors } from '../style/theme'
+import { css } from 'glamor'
+import { colors, media, offScreen } from '../style/theme'
+
+const formProps = global.netlifyProps || {}
+const fieldStyle = css({
+  background: '#171c21',
+  color: colors.bodyFg,
+  fontFamily: 'inherit',
+  fontSize: 16,
+  border: 'none',
+  resize: 'none',
+  borderRadius: 4,
+  padding: '10px 5px',
+  width: '100%',
+  boxShadow: '2px 4px 6px rgba(0, 0, 0, 0.25)',
+  transition: 'box-shadow 150ms ease-in-out',
+  ':hover': {
+    boxShadow: '4px 6px 8px rgba(0, 0, 0, 0.25)',
+  },
+  '::placeholder': {
+    color: 'white',
+    opacity: 0.9,
+  },
+})
+
+const Field = ({
+  inline,
+  label,
+  maxLength,
+  name,
+  placeholder,
+  required,
+  type,
+}) => (
+  <div
+    css={{
+      margin: '10px 10px 0 0',
+      display: inline ? 'inline-block' : 'block',
+      minWidth: inline ? 'calc(50% - 10px)' : null,
+      [media.lessThan(1020)]: {
+        display: 'block',
+        minWidth: null,
+      },
+    }}
+  >
+    <label
+      htmlFor={name}
+      css={{
+        fontSize: 16,
+        display: 'block',
+        margin: '0 0 5px',
+      }}
+    >
+      {label ? label : placeholder}:
+    </label>
+    {React.createElement(type === 'textarea' ? 'textarea' : 'input', {
+      maxLength,
+      name,
+      placeholder,
+      required,
+      id: name,
+      type: type === 'textarea' ? null : 'input',
+      className: fieldStyle,
+      style: type === 'textarea' ? { height: 100 } : {},
+    })}
+  </div>
+)
 
 const Footer = () => (
   <footer
     css={{
-      padding: '0 20px 40px',
+      padding: '0 20px 75px',
     }}
   >
     <div
@@ -15,7 +81,7 @@ const Footer = () => (
         },
       }}
     >
-      <h4>
+      <h4 css={{ marginBottom: 10 }}>
         Contact
         <a href="mailto:jj@jjsweb.site" alt="contact email">
           <svg
@@ -31,6 +97,67 @@ const Footer = () => (
           </svg>
         </a>
       </h4>
+      <hr css={{ maxWidth: 550 }} />
+      <form
+        name="contact"
+        method="post"
+        css={{
+          margin: '20px 0 40px',
+          maxWidth: 900,
+        }}
+        {...formProps}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <input name="somefield" type="text" css={offScreen} />
+        <Field
+          type="text"
+          label="Name*"
+          placeholder="Your name e.g. John Deux"
+          name="name"
+          inline
+          required
+        />
+        <Field
+          type="email"
+          label="Email"
+          placeholder="Email to reply to e.g. JDeuxy@gmail.com"
+          name="email"
+          inline
+        />
+        <Field
+          type="textarea"
+          label="Message*"
+          placeholder="Your message..."
+          name="message"
+          required
+        />
+        <button
+          type="submit"
+          css={{
+            background: colors.blue,
+            fontFamily: 'inherit',
+            fontSize: 18,
+            cursor: 'pointer',
+            padding: '5px 15px',
+            margin: '10px 10px',
+            float: 'right',
+            border: 'none',
+            borderRadius: 3,
+            color: 'white',
+            boxShadow: '2px 4px 6px rgba(0, 0, 0, 0.25)',
+            transition: 'box-shadow 150ms ease-in-out',
+            ':hover': {
+              boxShadow: '4px 6px 8px rgba(0, 0, 0, 0.25)',
+            },
+            ':active': {
+              outline: 0,
+              boxShadow: 'inset 0 4px 8px #3a78ab',
+            },
+          }}
+        >
+          Submit
+        </button>
+      </form>
     </div>
   </footer>
 )

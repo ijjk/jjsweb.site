@@ -3,6 +3,7 @@ import { keyframes } from 'glamor'
 export const colors = {
   bodyBg: ['#29323C', 'linear-gradient(60deg, #29323c 0%, #485563 100%)'],
   bodyFg: 'white',
+  blue: '#4D9DE0',
 }
 
 export const fonts = {
@@ -15,6 +16,12 @@ export const fonts = {
   caveat: {
     fontFamily: 'Caveat, cursive',
   },
+}
+
+export const offScreen = {
+  position: 'absolute',
+  left: '-300%',
+  top: '0',
 }
 
 export const media = {

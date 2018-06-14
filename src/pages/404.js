@@ -1,20 +1,24 @@
 import React from 'react'
 import Page from '../components/page'
 import Link from 'gatsby-link'
-import TypedText from '../components/typedText'
 
 const NotFoundPage = () => {
-  const css = { marginBottom: 15 }
   return (
     <Page key="page" noFooter>
       <div
-        css={{ textAlign: 'center', fontFamily: 'monospace', margin: '10% 0' }}
+        css={{
+          textAlign: 'center',
+          margin: '10% 0',
+          '& h2, & p': {
+            marginBottom: 15,
+          },
+        }}
       >
-        <TypedText started wrapEl="div">
-          <h2 {...{ css }}>Err 404... NOT FOUND</h2>
-          <p {...{ css }}>Welp you broke the site... How could you..</p>
+        <div>
+          <h2>Err 404... NOT FOUND</h2>
+          <p>Welp you broke the site... How could you..</p>
           <Link to="/home">Fix it -> Home</Link>
-        </TypedText>
+        </div>
       </div>
     </Page>
   )
