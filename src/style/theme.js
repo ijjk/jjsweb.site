@@ -7,12 +7,6 @@ export const colors = {
 }
 
 export const fonts = {
-  mono: {
-    fontFamily: 'monospace',
-  },
-  roboto: {
-    fontFamily: 'Roboto,Helvetica Neue,Helvetica,Arial,sans-serif',
-  },
   caveat: {
     fontFamily: 'Caveat, cursive',
   },

@@ -54,7 +54,6 @@ class IndexPage extends Component {
         css={{
           display: 'flex',
           height: '100%',
-          fontFamily: 'monospace',
           fontSize: 15,
           padding: '25px',
           animation: !done ? '' : fadeOut + ' 300ms ease-in-out forwards',

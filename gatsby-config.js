@@ -23,5 +23,17 @@ module.exports = {
         showSpinner: false,
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: "jjsweb.site",
+        short_name: "JJs site",
+        start_url: "/",
+        background_color: "#29323C",
+        theme_color: "#ffffff",
+        display: "browser",
+        icon: "src/imgs/logo.png", 
+      },
+    }
   ],
 }
