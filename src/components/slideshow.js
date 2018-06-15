@@ -34,16 +34,36 @@ const blur = css({
   top: 0,
 })
 
+const dot = css({
+  width: 32,
+  height: 8,
+  borderRadius: 3,
+  background: 'white',
+  opacity: 0.5,
+  cursor: 'pointer',
+  display: 'inline-block',
+  margin: '5px 4px',
+  boxShadow: '2px 4px 6px rgba(0, 0, 0, 0.25)',
+  transition: 'all 250ms ease',
+  ':hover': {
+    opacity: 0.75,
+  },
+})
+
 class Slideshow extends Component {
   state = {
     active: 0,
     opacity: 1,
   }
 
-  updSlide = advance => {
+  updSlide = (advance, nextIdx) => {
+    clearTimeout(this.timeout)
     const { active } = this.state
     const numImgs = this.props.imgs.length
-    let nextIdx = advance ? active + 1 : active - 1
+
+    if (typeof nextIdx === 'undefined') {
+      nextIdx = advance ? active + 1 : active - 1
+    }
 
     if (nextIdx >= numImgs) {
       nextIdx = 0
@@ -52,11 +72,15 @@ class Slideshow extends Component {
     }
     this.setState({ opacity: 0 })
     this.timeout = setTimeout(() => {
-      this.setState({ active: nextIdx, opacity: 1 })
-    }, 350)
+      this.setState({ active: nextIdx })
+      this.timeout = setTimeout(() => {
+        this.setState({ opacity: 1 })
+      }, 50)
+    }, 325)
   }
-  next = () => this.updSlide(true)
   prev = () => this.updSlide()
+  next = () => this.updSlide(true)
+  dotClick = e => this.updSlide(false, parseInt(e.currentTarget.id, 10))
   componentWillUnmount = () => clearTimeout(this.timeout)
 
   render() {
@@ -85,6 +109,25 @@ class Slideshow extends Component {
             transition: 'opacity 350ms ',
           }}
         />
+        <div
+          css={{
+            margin: '10px 0 0',
+            textAlign: 'center',
+          }}
+        >
+          {imgs.map((_, idx) => {
+            const opacity = idx === active ? 1 : null
+            return (
+              <div
+                id={idx}
+                key={idx}
+                className={dot}
+                style={{ opacity }}
+                onClick={this.dotClick}
+              />
+            )
+          })}
+        </div>
 
         <div className={blur} css={{ right: 0 }} />
         <Chevron

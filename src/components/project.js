@@ -2,13 +2,13 @@ import React from 'react'
 import Slideshow from './slideshow'
 
 const stack = {
-  electron: 'https://github.com/electron/electron',
-  feathersjs: 'https://feathersjs.com/',
-  gatsby: 'https://github.com/gatsbyjs/gatsby',
+  electron: 'https://electronjs.org',
+  feathersjs: 'https://feathersjs.com',
+  gatsby: 'https://gatsbyjs.org',
   glamor: 'https://github.com/threepointone/glamor',
   markdown: 'https://en.wikipedia.org/wiki/Markdown',
   mongodb: 'https://www.mongodb.com/',
-  'next.js': 'https://github.com/zeit/next.js',
+  'next.js': 'https://nextjs.org',
   react: 'https://reactjs.org',
   redux: 'https://redux.js.org',
   sass: 'https://sass-lang.com',
@@ -37,13 +37,7 @@ const Project = ({ imgs, data, ...props }) => (
     }}
   >
     <h4 css={{ wordWrap: 'break' }}>{data.name}</h4>
-    <Slideshow
-      {...{ imgs }}
-      css={{
-        margin: '10px 0',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.25)',
-      }}
-    />
+    <Slideshow {...{ imgs }} css={{ margin: '10px 0' }} />
     <div>
       <p css={{ fontSize: 16, marginBottom: 5 }}>{data.blurb}</p>
       <ul css={{ listStyle: 'none' }}>
