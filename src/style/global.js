@@ -15,6 +15,7 @@ css.global('body', {
   color: colors.bodyFg,
   fontFamily: 'monospace',
   minHeight: '100vh',
+  fontSize: 16,
 })
 
 css.global('a', {

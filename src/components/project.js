@@ -1,5 +1,6 @@
 import React from 'react'
 import Slideshow from './slideshow'
+import ExtLink from './extLink'
 
 const stack = {
   electron: 'https://electronjs.org',
@@ -39,22 +40,39 @@ const Project = ({ imgs, data, ...props }) => (
     <h4 css={{ wordWrap: 'break' }}>{data.name}</h4>
     <Slideshow {...{ imgs }} css={{ margin: '10px 0' }} />
     <div>
-      <p css={{ fontSize: 16, marginBottom: 5 }}>{data.blurb}</p>
+      <p css={{ marginBottom: 5 }}>{data.blurb}</p>
       <ul css={{ listStyle: 'none' }}>
         {data.stack.map(item => (
           <li css={{ display: 'inline-block' }} key={item}>
-            <a
-              href={stack[item]}
-              key={item}
-              target="_blank"
-              rel="noopener noreferrer"
-              css={stackItem}
-            >
+            <ExtLink key={item} css={stackItem} to={stack[item]}>
               {item}
-            </a>
+            </ExtLink>
           </li>
         ))}
       </ul>
+      {!data.repo ? null : (
+        <ExtLink
+          href={data.repo}
+          css={{
+            margin: '15px 15px 0 0',
+            display: 'inline-block',
+          }}
+        >
+          Source
+        </ExtLink>
+      )}
+      {!data.demo ? null : (
+        <ExtLink href={data.demo} css={{ display: 'inline-block' }}>
+          Live
+        </ExtLink>
+      )}
+      {!data.login.username ? null : (
+        <div css={{ marginTop: 15 }}>
+          <p css={{ marginBottom: 5 }}>Demo login: </p>
+          <p>Username: {data.login.username}</p>
+          <p>Password: {data.login.password}</p>
+        </div>
+      )}
     </div>
   </div>
 )

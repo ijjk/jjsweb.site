@@ -113,7 +113,9 @@ class TypedText extends Component {
     const { className, nonTyped, wrapEl } = this.props
     let { children } = this.state
     return React.createElement(wrapEl ? wrapEl : 'div', {
-      children: children.concat(nonTyped),
+      children: children
+        .concat(nonTyped)
+        .map((el, key) => React.cloneElement(el, { key })),
       className,
     })
   }

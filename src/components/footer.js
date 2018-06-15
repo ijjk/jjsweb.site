@@ -7,7 +7,6 @@ const fieldStyle = css({
   background: '#171c21',
   color: colors.bodyFg,
   fontFamily: 'inherit',
-  fontSize: 16,
   border: 'none',
   resize: 'none',
   borderRadius: 4,
@@ -47,7 +46,6 @@ const Field = ({
     <label
       htmlFor={name}
       css={{
-        fontSize: 16,
         display: 'block',
         margin: '0 0 5px',
       }}

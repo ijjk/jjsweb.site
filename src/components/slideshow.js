@@ -32,6 +32,7 @@ const blur = css({
   width: 50,
   zIndex: 2,
   top: 0,
+  pointerEvents: 'none',
 })
 
 const dot = css({

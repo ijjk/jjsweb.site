@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { navigateTo } from 'gatsby-link'
 import TypedText from '../components/typedText'
+import ExtLink from '../components/extLink'
 import { fadeOut } from '../style/theme'
 
 class IndexPage extends Component {
@@ -54,7 +55,6 @@ class IndexPage extends Component {
         css={{
           display: 'flex',
           height: '100%',
-          fontSize: 15,
           padding: '25px',
           animation: !done ? '' : fadeOut + ' 300ms ease-in-out forwards',
         }}
@@ -73,9 +73,7 @@ class IndexPage extends Component {
           <br />
           <br />
           <span> * Source code: </span>
-          <a href={repo} rel="noopener noreferrer" target="_blank">
-            {repo}
-          </a>
+          <ExtLink to={repo}>{repo}</ExtLink>
           <br />
           <span> * Contact: JJ Kasper </span>
           <a href="mailto:jj@jjsweb.site">{'<jj@jjsweb.site>'}</a>
