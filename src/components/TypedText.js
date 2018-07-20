@@ -90,34 +90,38 @@ class TypedText extends Component {
   }
 
   componentDidMount() {
+    const { started, typeSpeed } = this.props
+    this.typeSpeed = typeSpeed || 35
     this.childIdx = 0
     this.charIdx = 0
     this.typeChild().then(() => {
-      this.setState({ done: true })
+      this.setState({ done: true, started })
       if (typeof this.props.finished === 'function') {
         this.props.finished()
       }
     })
   }
 
-  updateState = props => {
-    const { started, typeSpeed } = props || this.props
-    this.typeSpeed = typeSpeed || 35
+  componentDidUpdate(prev) {
+    const { started } = this.props
+    if (prev.started === started) return
     this.setState({ started })
   }
-  componentWillMount = this.updateState
-  componentWillReceiveProps = this.updateState
-  componentWillUnmount = () => clearTimeout(this.timeout)
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout)
+  }
 
   render() {
     const { className, nonTyped, wrapEl } = this.props
     let { children } = this.state
-    return React.createElement(wrapEl ? wrapEl : 'div', {
-      children: children
+    return React.createElement(
+      wrapEl ? wrapEl : 'div',
+      { className },
+      children
         .concat(nonTyped)
-        .map((el, key) => React.cloneElement(el, { key })),
-      className,
-    })
+        .map((el, key) => React.cloneElement(el, { key }))
+    )
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from '../components/page'
+import Page from '../components/Page'
 import Link from 'gatsby-link'
 
 const NotFoundPage = () => {
@@ -17,7 +17,7 @@ const NotFoundPage = () => {
         <div>
           <h2>Err 404... NOT FOUND</h2>
           <p>Welp you broke the site... How could you..</p>
-          <Link to="/home">Fix it -> Home</Link>
+          <Link to="/home">{'Fix it -> Home'}</Link>
         </div>
       </div>
     </Page>

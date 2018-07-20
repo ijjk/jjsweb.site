@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import Header from './header'
-import Footer from './footer'
-import ToTopBtn from './toTopBtn'
+import React from 'react'
+import Header from './Header'
+import Footer from './Footer'
+import ToTopBtn from './ToTopBtn'
 
 const Page = ({ children, noFooter, ...props }) => (
   <div {...props}>

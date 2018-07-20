@@ -1,6 +1,6 @@
 import React from 'react'
-import Slideshow from './slideshow'
-import ExtLink from './extLink'
+import Slideshow from './Slideshow'
+import ExtLink from './ExtLink'
 
 const stack = {
   electron: 'https://electronjs.org',

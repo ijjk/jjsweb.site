@@ -1,6 +1,6 @@
 import React from 'react'
-import Page from '../components/page'
-import Project from '../components/project'
+import Page from '../components/Page'
+import Project from '../components/Project'
 import { media } from '../style/theme'
 
 const Home = ({ data }) => {

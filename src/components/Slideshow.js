@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
-import Chevron from './chevron'
+import Chevron from './Chevron'
 import { css } from 'glamor'
 
 const chevronCss = css({

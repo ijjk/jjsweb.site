@@ -19,6 +19,7 @@
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --write 'src/**/*.js'",
+    "lint": "eslint . --config .eslintrc.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -41,6 +42,9 @@
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.5",
+    "eslint": "^5.0.1",
+    "eslint-plugin-react": "^7.10.0",
     "prettier": "^1.12.0",
     "prop-types": "^15.6.1"
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { navigateTo } from 'gatsby-link'
-import TypedText from '../components/typedText'
-import ExtLink from '../components/extLink'
+import TypedText from '../components/TypedText'
+import ExtLink from '../components/ExtLink'
 import { fadeOut } from '../style/theme'
 
 class IndexPage extends Component {
@@ -45,7 +45,7 @@ class IndexPage extends Component {
     const { done, ip, loading, started } = this.state
     const repo = 'https://github.com/ijjk/jjsweb.site'
     const nonTyped = [
-      <i className={loading ? 'loadSlash' : 'cursor'}>
+      <i className={loading ? 'loadSlash' : 'cursor'} key="1">
         {loading ? '/' : null}
       </i>,
     ]
@@ -68,7 +68,12 @@ class IndexPage extends Component {
           }}
         />
 
-        <TypedText wrapEl="p" finished={this.done} {...{ started, nonTyped }}>
+        <TypedText
+          wrapEl="p"
+          finished={this.done}
+          {...{ started, nonTyped }}
+          css={{ wordBreak: 'break-word' }}
+        >
           <span>Welcome to jjsweb.site v1.0.0 (gatsbyjs/gatsby v1.9.247)</span>
           <br />
           <br />
