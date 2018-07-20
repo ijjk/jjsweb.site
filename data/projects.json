@@ -39,7 +39,7 @@
     "screensDir": "studentlife",
     "blurb": "STUDENTLIFE is a school based social network to get updated on news from other students and teachers, and to access opportunities and resources.",
     "repo": "https://github.com/ijjk/studentlife",
-    "demo": "https://studentlife.jjsweb.site",
+    "demo": "https://sl.jjsweb.site",
     "login": {
       "username": "admin",
       "password": "pass"
@@ -47,9 +47,8 @@
     "stack": [
       "react",
       "redux",
-      "sass",
-      "feathersjs",
-      "mongodb"
+      "mongodb", 
+      "feathersjs"
     ]
   },
   {
