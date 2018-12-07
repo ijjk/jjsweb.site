@@ -4,6 +4,7 @@ import ExtLink from './ExtLink'
 
 const stack = {
   electron: 'https://electronjs.org',
+  express: 'https://expressjs.com',
   feathersjs: 'https://feathersjs.com',
   gatsby: 'https://gatsbyjs.org',
   glamor: 'https://github.com/threepointone/glamor',
@@ -12,7 +13,7 @@ const stack = {
   'next.js': 'https://nextjs.org',
   react: 'https://reactjs.org',
   redux: 'https://redux.js.org',
-  sass: 'https://sass-lang.com',
+  'styled-jsx': 'https://github.com/zeit/styled-jsx',
   vanillajs: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
 }
 

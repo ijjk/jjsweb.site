@@ -87,6 +87,8 @@ class Slideshow extends Component {
   render() {
     const { className, imgs } = this.props
     const { active, opacity } = this.state
+    const next = active < imgs.length - 1 ? active + 1 : 0
+
     return (
       <div
         {...{ className }}
@@ -110,6 +112,15 @@ class Slideshow extends Component {
             transition: 'opacity 350ms ',
           }}
         />
+        {/* load possible next image for smoother transition */}
+        <Img
+          sizes={imgs[next].node.childImageSharp.sizes}
+          style={{
+            height: 0,
+            width: 0,
+          }} 
+        />
+
         <div
           css={{
             margin: '10px 0 0',

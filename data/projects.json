@@ -6,14 +6,14 @@
     "repo": "https://github.com/ijjk/mykb",
     "demo": "https://mykb.jjsweb.site",
     "login": {
-      "username": "notadmin",
+      "username": "admin",
       "password": "secretpass"
     },
     "stack": [
-      "sass",
+      "styled-jsx",
       "react",
       "next.js",
-      "feathersjs",
+      "express",
       "markdown"
     ]
   },
@@ -22,7 +22,7 @@
     "screensDir": "sdsrf",
     "blurb": "SDS Research Fund is a non-profit that hopes to increase the funds being raised for research towards a cure for Shwachman Diamond Syndrome.",
     "repo": "https://github.com/ijjk/sdsrf",
-    "demo": "https://sdsresearchfund.org",
+    "demo": "",
     "login": {
       "username": "",
       "password": ""
