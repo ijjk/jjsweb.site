@@ -1,9 +1,17 @@
 import React from 'react'
 
-const ExtLink = ({ children, target, to, ...props }) => (
-  <a href={to} rel="noopener noreferrer" target={target || '_blank'} {...props}>
-    {children}
-  </a>
-)
+const externalProps = {
+  rel: 'noopener noreferrer',
+  target: '_blank',
+}
 
-export default ExtLink
+export default function ExtLink({ children, ...props }) {
+  return React.createElement(
+    'a',
+    {
+      ...(props.href.indexOf('mailto') === -1 ? externalProps : {}),
+      ...props,
+    },
+    children
+  )
+}

@@ -1,62 +1,65 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import { keyframes } from 'glamor'
-import { fonts } from '../style/theme'
+import { Link } from 'gatsby'
 
-const drawText = keyframes('drawLogoTxt', {
-  from: {
-    strokeDashoffset: 1000,
-  },
-  to: {
-    strokeDashoffset: 0,
-  },
-})
+import ExtLink from './extLink'
+import NavLink from './navLink'
+import Logo from '../assets/logo.svg'
+import headerStyles from './header.style'
+import Caret from '../assets/caret-down.svg'
+import { pathPrefix, navItems, socials } from '../config'
 
-const fadeFill = keyframes('fadeLogoTxt', {
-  from: {
-    fill: 'transparent',
-  },
-  to: {
-    fill: 'white',
-  },
-})
+let checkboxRef
+const collapseNav = () => {
+  if (checkboxRef) checkboxRef.checked = false
+}
 
 const Header = () => (
-  <div>
-    <header
-      css={{
-        margin: '0 auto',
-        padding: '10px 20px 15px',
-      }}
-    >
-      <h2 css={{ margin: 0 }}>
-        <Link to="/home" css={{ textDecoration: 'none' }}>
-          <svg width="225" viewBox="0 0 230 67">
-            <text
-              x="10"
-              y="50"
-              css={{
-                ...fonts.caveat,
-                fontSize: 60,
-                strokeWidth: 1,
-                stroke: 'white',
-                fill: 'none',
-                strokeDasharray: 1000,
-                strokeDashoffset: 1000,
-                animation:
-                  drawText +
-                  ' 3s ease-in-out forwards, ' +
-                  fadeFill +
-                  ' 1.25s ease-in-out forwards',
-              }}
-            >
-              jjsweb.site
-            </text>
-          </svg>
+  <>
+    <header>
+      <div className="constrain">
+        <input type="checkbox" id="checkbox" ref={el => (checkboxRef = el)} />
+
+        <nav>
+          <ul>
+            {navItems.map(item => (
+              <li key={item}>
+                <NavLink
+                  to={pathPrefix + (item === 'Home' ? '' : item.toLowerCase())}
+                >
+                  <span onClick={collapseNav}>{item}</span>
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <Link to="/" className="logo">
+          <span className="hidden">JK logo</span>
+          <span onClick={collapseNav}>
+            <Logo height={50} />
+          </span>
         </Link>
-      </h2>
+
+        <label htmlFor="checkbox">
+          <span>Menu</span>
+          <Caret height={18} />
+        </label>
+
+        <ul>
+          {socials.map(({ alt, Icon, link }) => (
+            <li key={link}>
+              <ExtLink href={link}>
+                <Icon height={22} />
+                <span className="hidden">{alt}</span>
+              </ExtLink>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
-  </div>
+
+    <style jsx>{headerStyles}</style>
+  </>
 )
 
 export default Header

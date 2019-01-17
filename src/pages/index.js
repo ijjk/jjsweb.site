@@ -1,99 +1,30 @@
-import React, { Component } from 'react'
-import { navigateTo } from 'gatsby-link'
-import TypedText from '../components/TypedText'
-import ExtLink from '../components/ExtLink'
-import { fadeOut } from '../style/theme'
+import React from 'react'
+import { Link } from 'gatsby'
 
-class IndexPage extends Component {
-  state = {
-    started: false,
-    loading: false,
-    done: false,
-    ip: '192.168.1.123',
-  }
+import SEO from '../components/seo'
+import Layout from '../components/layout'
 
-  numLines = 8
-  done = () => {
-    this.setState({ loading: true, started: false })
-    this.timeout = setTimeout(() => {
-      this.setState({ done: true })
-      this.timeout = setTimeout(() => navigateTo('/home'), 360)
-    }, 1000)
-  }
+const Index = () => (
+  <Layout>
+    <SEO title="Home" />
 
-  componentDidMount() {
-    if (window.location.hostname !== 'localhost') {
-      fetch('https://api.ipify.org')
-        .then(res => {
-          res.ok &&
-            res.text().then(ip => {
-              this.setState({ ip })
-            })
-        })
-        .catch(() => {}) // just leave dummy ip
-    }
-    this.timeout = setTimeout(() => {
-      this.setState({ started: true })
-    }, 350)
-  }
+    <div className="fill v-middle-align">
+      <h2>
+        I USE PROGRAMMING
+        <br />
+        TO CREATE ENJOYABLE
+        <br />
+        EXPERIENCES THAT SOLVE
+        <br />
+        PROBLEMS AND I COOK A LITTLE
+        <br />
+      </h2>
 
-  componentWillUnmount() {
-    clearTimeout(this.timeout)
-  }
+      <Link to="/projects">
+        <button className="btn">See Projects</button>
+      </Link>
+    </div>
+  </Layout>
+)
 
-  render() {
-    const { done, ip, loading, started } = this.state
-    const repo = 'https://github.com/ijjk/jjsweb.site'
-    const nonTyped = [
-      <i className={loading ? 'loadSlash' : 'cursor'} key="1">
-        {loading ? '/' : null}
-      </i>,
-    ]
-
-    return (
-      <div
-        css={{
-          display: 'flex',
-          height: '100%',
-          padding: '25px',
-          animation: !done ? '' : fadeOut + ' 300ms ease-in-out forwards',
-        }}
-      >
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
-          <noscript>
-            <p>For the full experience please enable Javascript. Continue -> <a href='/home'>/home</a>  
-          </noscript>`,
-          }}
-        />
-
-        <TypedText
-          wrapEl="p"
-          finished={this.done}
-          {...{ started, nonTyped }}
-          css={{ wordBreak: 'break-word' }}
-        >
-          <span>Welcome to jjsweb.site v1.0.0 (gatsbyjs/gatsby v1.9.247)</span>
-          <br />
-          <br />
-          <span> * Source code: </span>
-          <ExtLink to={repo}>{repo}</ExtLink>
-          <br />
-          <span> * Contact: JJ Kasper </span>
-          <a href="mailto:jj@jjsweb.site">{'<jj@jjsweb.site>'}</a>
-          <br />
-          <br />
-          <span>
-            Last login: {new Date().toString()} from {ip}
-          </span>
-          <br />
-          <br />
-          <span>Loading GUI... </span>
-        </TypedText>
-      </div>
-    )
-  }
-}
-
-export default IndexPage
+export default Index

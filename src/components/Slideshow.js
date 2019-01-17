@@ -1,55 +1,10 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
-import Chevron from './Chevron'
-import { css } from 'glamor'
+import PropTypes from 'prop-types'
 
-const chevronCss = css({
-  position: 'absolute',
-  top: 0,
-  bottom: 0,
-  margin: 'auto 0',
-  height: 60,
-  width: 30,
-  zIndex: 3,
-  fill: 'white',
-  cursor: 'pointer',
-  opacity: 0.8,
-  transition: 'opacity 150ms ease',
-  ':hover': {
-    opacity: 1,
-  },
-  ':active': {
-    opacity: 0.6,
-  },
-})
+import Chevron from '../assets/chevron-left.svg'
 
-const blur = css({
-  background:
-    'linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0) 70%)',
-  position: 'absolute',
-  height: '100%',
-  width: 50,
-  zIndex: 2,
-  top: 0,
-  pointerEvents: 'none',
-})
-
-const dot = css({
-  width: 32,
-  height: 8,
-  borderRadius: 3,
-  background: 'white',
-  opacity: 0.5,
-  cursor: 'pointer',
-  display: 'inline-block',
-  margin: '5px 4px',
-  boxShadow: '2px 4px 6px rgba(0, 0, 0, 0.25)',
-  transition: 'all 250ms ease',
-  ':hover': {
-    opacity: 0.75,
-  },
-})
+const fadeLength = 400 // in milliseconds
 
 class Slideshow extends Component {
   state = {
@@ -77,7 +32,7 @@ class Slideshow extends Component {
       this.timeout = setTimeout(() => {
         this.setState({ opacity: 1 })
       }, 50)
-    }, 325)
+    }, fadeLength)
   }
   prev = () => this.updSlide()
   next = () => this.updSlide(true)
@@ -91,38 +46,35 @@ class Slideshow extends Component {
 
     return (
       <div
-        {...{ className }}
-        css={{
+        style={{
           position: 'relative',
           userSelect: 'none',
         }}
+        className={className}
       >
-        <div className={blur} css={{ left: 0 }} />
-        <Chevron
-          dir="left"
-          className={chevronCss}
-          css={{ left: 10 }}
-          onClick={this.prev}
-        />
+        <div className="blur" style={{ left: 0 }} />
+        <Chevron className="chevron" onClick={this.prev} style={{ left: 10 }} />
 
         <Img
-          sizes={imgs[active].node.childImageSharp.sizes}
+          key={active}
+          fluid={imgs[active].node.childImageSharp.fluid}
           style={{
             opacity,
-            transition: 'opacity 350ms ',
           }}
         />
         {/* load possible next image for smoother transition */}
         <Img
-          sizes={imgs[next].node.childImageSharp.sizes}
+          key={next}
+          fluid={imgs[next].node.childImageSharp.fluid}
           style={{
-            height: 0,
             width: 0,
-          }} 
+            height: 0,
+            opacity: 0,
+          }}
         />
 
         <div
-          css={{
+          style={{
             margin: '10px 0 0',
             textAlign: 'center',
           }}
@@ -133,7 +85,7 @@ class Slideshow extends Component {
               <div
                 id={idx}
                 key={idx}
-                className={dot}
+                className="dot"
                 style={{ opacity }}
                 onClick={this.dotClick}
               />
@@ -141,20 +93,80 @@ class Slideshow extends Component {
           })}
         </div>
 
-        <div className={blur} css={{ right: 0 }} />
+        <div className="blur" style={{ right: 0 }} />
         <Chevron
-          className={chevronCss}
-          css={{ right: 10 }}
           onClick={this.next}
+          className="chevron"
+          style={{ right: 10, transform: 'rotate(180deg)' }}
         />
+
+        <style jsx>{`
+          div :global(.gatsby-image-wrapper) {
+            transition: opacity ${fadeLength}ms ease-in-out;
+          }
+
+          div :global(.chevron) {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            height: 60px;
+            width: 30px;
+            z-index: 3;
+            fill: white;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 150ms ease;
+          }
+
+          div :global(.chevron:hover) {
+            opacity: 1;
+          }
+
+          div :global(.chevron:hover) {
+            opacity: 0.6;
+          }
+
+          div :global(.dot) {
+            width: 32px;
+            height: 8px;
+            opacity: 0.5;
+            cursor: pointer;
+            margin: 5px 4px;
+            border-radius: 6px;
+            display: inline-block;
+            background: #000000;
+            transition: all 250ms ease;
+            box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
+          }
+
+          div :global(.dot:hover) {
+            opacity: 0.75;
+          }
+
+          div :global(.blur) {
+            background: linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0) 30%,
+              rgba(0, 0, 0, 0.25) 50%,
+              rgba(0, 0, 0, 0) 70%
+            );
+            position: absolute;
+            height: 100%;
+            width: 50px;
+            z-index: 2;
+            top: 0;
+            pointer-events: none;
+          }
+        `}</style>
       </div>
     )
   }
 }
 
 Slideshow.propTypes = {
+  className: PropTypes.any,
   imgs: PropTypes.array.isRequired, // childImageSharp nodes
-  className: PropTypes.any, // allow glamor object
 }
 
 export default Slideshow
