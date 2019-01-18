@@ -179,6 +179,11 @@ const NotFoundPage = () => {
           border-bottom: 1px solid black;
         }
 
+        form :global(label *:invalid) {
+          /* hide red box-shadow in Firefox */
+          box-shadow: none;
+        }
+
         form :global(label textarea) {
           resize: none;
         }
