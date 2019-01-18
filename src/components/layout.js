@@ -101,6 +101,18 @@ const Layout = ({ children }) => (
         box-shadow: inset 0 2px rgba(0, 0, 0, 0.25);
       }
 
+      .btn .spin {
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-radius: 16px;
+        background: transparent;
+        border: 1px solid white;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        animation: spin 500ms linear infinite;
+      }
+
       .pill {
         padding: 4px 10px;
         margin: 4px 4px 0;
@@ -113,6 +125,15 @@ const Layout = ({ children }) => (
 
       .pill:hover {
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
       }
     `}</style>
   </div>
