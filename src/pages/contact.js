@@ -29,6 +29,12 @@ const NotFoundPage = () => {
   const [message, setMessage] = useState('')
   const [pending, setPending] = useState(false)
   
+  const clearForm = () => {
+    setName('')
+    setReplyTo('')
+    setMessage('')
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
     if (pending) return;
@@ -51,6 +57,7 @@ const NotFoundPage = () => {
         setPending(false)
         if (!data) return
         if (data && data.status === 'ok') {
+          clearForm()
           setError('Message sent!')
         } else {
           setError(data.message || defaultErrorText)
