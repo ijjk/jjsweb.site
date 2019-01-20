@@ -1,0 +1,11 @@
+pages:
+  image: node:8-jessie
+  stage: deploy
+  script:
+  - yarn install
+  - yarn build
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
