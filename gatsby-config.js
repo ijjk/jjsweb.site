@@ -1,8 +1,10 @@
+const siteUrl = 'https://jjsweb.site'
+
 module.exports = {
   siteMetadata: {
+    siteUrl,
     author: `JJ Kasper`,
     title: `JJ's website`,
-    siteUrl: 'https://jjsweb.site',
     description: `Just a site to show some stuff and maybe talk about some stuff`,
   },
   plugins: [
@@ -45,6 +47,14 @@ module.exports = {
       options: {
         color: '#039BE5',
         showSpinner: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-matomo`,
+      options: {
+        siteUrl,
+        siteId: '1',
+        matomoUrl: 'https://mato.jjsweb.site',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
