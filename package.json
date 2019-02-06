@@ -45,8 +45,8 @@
     "gatsby-transformer-sharp": "^2.1.8",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.6.2",
-    "react": "^16.8.0-alpha.1",
-    "react-dom": "^16.8.0-alpha.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-helmet": "^5.2.0",
     "styled-jsx": "^3.2.0"
   },
