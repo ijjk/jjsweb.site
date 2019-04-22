@@ -25,8 +25,8 @@ const Header = () => {
           <nav>
             <ul>
               {navItems.map(item => {
-                const href = item === 'Home' ? '' : item.toLowerCase()
-                const asHref = pathPrefix + href
+                const href = '/' + (item === 'Home' ? '' : item.toLowerCase())
+                const asHref = pathPrefix !== '/' ? pathPrefix + href : href
                 const active = href === router.route
 
                 return (
