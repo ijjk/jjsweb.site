@@ -14,6 +14,7 @@
     "url": "https://github.com/ijjk/jjsweb.site"
   },
   "scripts": {
+    "now-build": "next build && next export -o dist",
     "build": "next build && next export -o public",
     "dev": "next dev",
     "start": "next dev",
