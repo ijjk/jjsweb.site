@@ -5,7 +5,7 @@ import ExtLink from '../components/extLink'
 
 const ProjectCard = ({ projKey, name, stack, screens, idx }) => (
   <div className="card" style={{ animationDelay: idx * 85 + 'ms' }}>
-    <img src={`${thumbsPath}${projKey}/${screens[0]}`} className="thumb" />
+    <img src={`${thumbsPath}${projKey}/thumb.jpg`} className="thumb" />
 
     <div>
       <div className="name">

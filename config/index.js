@@ -4,7 +4,7 @@ import Envelope from '../components/svgs/envelope'
 
 export const siteUrl = 'https://jjsweb.site'
 export const pathPrefix = '/'
-export const thumbsPath = pathPrefix + 'static/projects/'
+export const thumbsPath = pathPrefix + 'projects/'
 export const navItems = ['Home', 'Projects', 'Blog', 'Contact']
 export const socials = [
   {
