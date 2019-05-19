@@ -15,7 +15,7 @@
   },
   "scripts": {
     "now-build": "next build && next export -o dist",
-    "build": "next build && next export -o public",
+    "build": "next build && next export -o dist",
     "dev": "next dev",
     "start": "next dev",
     "format": "prettier --write \"src/**/*.js\"",

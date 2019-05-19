@@ -65,5 +65,5 @@ yarn-error.log
 .yarn-integrity
 
 # build output
-public
+dist
 .next
