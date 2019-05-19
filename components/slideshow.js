@@ -42,73 +42,76 @@ class Slideshow extends Component {
     const next = active < imgs.length - 1 ? active + 1 : 0
 
     return (
-      <div
-        style={{
-          position: 'relative',
-          userSelect: 'none',
-        }}
-        className={className}
-      >
-        <div className="blur" style={{ left: 0 }} />
-        <Chevron className="chevron" onClick={this.prev} style={{ left: 10 }} />
+      <div className="wrap-slideshow">
+        <div className={`slideshow${className ? ' ' + className : ''}`}>
+          <div className="blur left" />
+          <Chevron
+            className="chevron"
+            onClick={this.prev}
+            style={{ left: 10 }}
+          />
 
-        <img
-          key={active}
-          src={imgs[active]}
-          style={{
-            opacity,
-          }}
-        />
-        {/* load possible next image for smoother transition */}
-        <img
-          key={next}
-          src={imgs[next]}
-          style={{
-            width: 0,
-            height: 0,
-            opacity: 0,
-          }}
-        />
+          <img
+            key={active}
+            src={imgs[active]}
+            style={{
+              opacity,
+            }}
+          />
+          {/* load possible next image for smoother transition */}
+          <img
+            key={next}
+            src={imgs[next]}
+            style={{
+              width: 0,
+              height: 0,
+              opacity: 0,
+            }}
+          />
 
-        <div
-          style={{
-            margin: '10px 0 0',
-            textAlign: 'center',
-          }}
-        >
-          {imgs.map((_, idx) => {
-            const opacity = idx === active ? 1 : null
-            return (
-              <div
-                id={idx}
-                key={idx}
-                className="dot"
-                style={{ opacity }}
-                onClick={this.dotClick}
-              />
-            )
-          })}
+          <div className="blur right" />
+          <Chevron
+            onClick={this.next}
+            className="chevron"
+            style={{ right: 10, transform: 'rotate(180deg)' }}
+          />
+
+          <div className="dots">
+            {imgs.map((_, idx) => {
+              const opacity = idx === active ? 1 : null
+              return (
+                <div
+                  id={idx}
+                  key={idx}
+                  className="dot"
+                  style={{ opacity }}
+                  onClick={this.dotClick}
+                />
+              )
+            })}
+          </div>
         </div>
 
-        <div className="blur" style={{ right: 0 }} />
-        <Chevron
-          onClick={this.next}
-          className="chevron"
-          style={{ right: 10, transform: 'rotate(180deg)' }}
-        />
-
         <style jsx>{`
+          .wrap-slideshow {
+            text-align: center;
+            margin-top: 10px;
+          }
+
+          .slideshow {
+            display: inline-block;
+            position: relative;
+          }
+
           div img {
             transition: opacity ${fadeLength}ms ease-in-out;
             max-height: 400px;
             max-width: 800px;
-            width: 100%;
+            width: auto;
+            margin: 0;
           }
 
           div :global(.chevron) {
-            position: absolute;
-            top: 0;
-            bottom: 0;
             margin: auto 0;
             height: 60px;
             width: 30px;
@@ -116,6 +119,9 @@ class Slideshow extends Component {
             fill: white;
             cursor: pointer;
             opacity: 0.8;
+            position: absolute;
+            top: 0;
+            bottom: 0;
             transition: opacity 150ms ease;
           }
 
@@ -127,7 +133,13 @@ class Slideshow extends Component {
             opacity: 0.6;
           }
 
-          div :global(.dot) {
+          .dots {
+            margin: 10px 0 0;
+            width: 100%;
+            text-align: center;
+          }
+
+          .dot {
             width: 32px;
             height: 8px;
             opacity: 0.5;
@@ -140,23 +152,28 @@ class Slideshow extends Component {
             box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
           }
 
-          div :global(.dot:hover) {
+          .dot:hover {
             opacity: 0.75;
           }
 
-          div :global(.blur) {
+          .blur {
             background: linear-gradient(
               to bottom,
               rgba(0, 0, 0, 0) 30%,
               rgba(0, 0, 0, 0.25) 50%,
               rgba(0, 0, 0, 0) 70%
             );
-            position: absolute;
             height: 100%;
             width: 50px;
-            z-index: 2;
-            top: 0;
             pointer-events: none;
+            position: absolute;
+            top: 0;
+          }
+          .blur.left {
+            left: 0;
+          }
+          .blur.right {
+            right: 0;
           }
         `}</style>
       </div>
