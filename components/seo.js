@@ -73,11 +73,8 @@ function SEO({ description, lang, meta, keywords, title }) {
         href="/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-      <link rel="shortcut icon" href="/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#2d89ef" />
-      <meta name="msapplication-config" content="/browserconfig.xml" />
-      <meta name="theme-color" content="#0070F5" />
+      <meta name="msapplication-TileColor" content="#ffffff" />
+      <meta name="theme-color" content="#ffffff" />
     </Head>
   )
 }
