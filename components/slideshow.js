@@ -101,13 +101,14 @@ class Slideshow extends Component {
           .slideshow {
             display: inline-block;
             position: relative;
+            width: 100%;
           }
 
           div img {
             transition: opacity ${fadeLength}ms ease-in-out;
             max-height: 400px;
             max-width: 800px;
-            width: auto;
+            width: 100%;
             margin: 0;
           }
 
