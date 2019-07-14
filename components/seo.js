@@ -7,7 +7,10 @@ function SEO({ description, lang, meta, keywords, title }) {
   return (
     <Head>
       <html lang={lang} />
-      <title>{title}</title>
+      <title>
+        {title}
+        {title ? ' | ' : ''}JJ's website
+      </title>
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -83,11 +86,11 @@ function SEO({ description, lang, meta, keywords, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: 'en',
   meta: [],
   keywords: [],
-  title: `JJ's website`,
-  description: `Personal website for JJ Kasper`,
+  title: '',
+  description: 'Personal website for JJ Kasper',
 }
 
 export default SEO
