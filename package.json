@@ -17,6 +17,7 @@
     "dev": "next dev",
     "start": "next dev",
     "build": "next build",
+    "export": "next export",
     "format": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged"
   },

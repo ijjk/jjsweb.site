@@ -4,6 +4,10 @@ pages:
   script:
   - yarn install
   - yarn build
+  - yarn export
+  - cp -r public out/
+  - mv public tmp
+  - mv out public
   artifacts:
     paths:
     - public
