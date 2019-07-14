@@ -77,7 +77,9 @@ const Layout = ({ children }) => (
       }
 
       a span.hidden {
-        display: none;
+        position: fixed;
+        top: -300%;
+        left: -300%;
       }
 
       .btn {

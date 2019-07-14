@@ -14,10 +14,9 @@
     "url": "https://github.com/ijjk/jjsweb.site"
   },
   "scripts": {
-    "now-build": "next build && next export -o dist",
-    "build": "next build && next export -o dist",
     "dev": "next dev",
     "start": "next dev",
+    "build": "next build",
     "format": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged"
   },
