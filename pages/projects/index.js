@@ -1,7 +1,7 @@
 import React from 'react'
 
-import projects from '../../config/projects'
 import SEO from '../../components/seo'
+import projects from '../../config/projects'
 import Layout from '../../components/layout'
 import ProjectCard from '../../components/projectCard'
 

@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { thumbsPath } from '../config'
 import ExtLink from '../components/extLink'
 
-const ProjectCard = ({ projKey, name, stack, screens, idx }) => (
-  <div className="card" style={{ animationDelay: idx * 85 + 'ms' }}>
+const ProjectCard = ({ projKey, name, stack, idx }) => (
+  <div className="card" style={{ animationDelay: idx * 150 + 'ms' }}>
     <img src={`${thumbsPath}${projKey}/thumb.jpg`} className="thumb" />
 
     <div>
@@ -28,21 +28,21 @@ const ProjectCard = ({ projKey, name, stack, screens, idx }) => (
     <style jsx>{`
       @keyframes appear {
         from {
-          transform: scale(0);
+          opacity: 0;
         }
         to {
-          transform: scale(1);
+          opacity: 1;
         }
       }
 
       .card {
+        opacity: 0;
         width: 95%;
         max-width: 375px;
         margin: 25px 10px;
         border-radius: 6px;
-        transform: scale(0);
         background: #ffffff;
-        animation: appear 400ms ease forwards;
+        animation: appear 700ms ease forwards;
         box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.25);
       }
 
