@@ -2,11 +2,10 @@ import React from 'react'
 import Head from 'next/head'
 import { siteMetadata } from '../config'
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, meta, keywords, title }) {
   const metaDescription = description || siteMetadata.description
   return (
     <Head>
-      <html lang={lang} />
       <title>
         {title}
         {title ? ' | ' : ''}JJ's website

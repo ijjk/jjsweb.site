@@ -17,7 +17,6 @@
     "dev": "next dev",
     "start": "next dev",
     "build": "next build",
-    "export": "next export",
     "format": "prettier --write \"src/**/*.js\"",
     "precommit": "lint-staged"
   },
@@ -28,7 +27,7 @@
     ]
   },
   "dependencies": {
-    "next": "^9.0.6-canary.1",
+    "next": "^9.0.7-canary.4",
     "normalize.css": "^8.0.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
