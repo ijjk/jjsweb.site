@@ -3488,7 +3488,7 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lru-cache@^5.1.1:
+lru-cache@5.1.1, lru-cache@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-5.1.1.tgz#1da27e6710271947695daf6848e847f01d84b920"
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
@@ -3778,10 +3778,10 @@ neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-next@^9.0.7-canary.4:
-  version "9.0.7-canary.4"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.0.7-canary.4.tgz#922669edadaa11f1d40dc1708f0eb0bd1a042343"
-  integrity sha512-3IW9tiGI2piZ6KNKBuJHMG29L/520v+6sMY3xTQCTFohbSwZJvla4Qu9e8QZdetlS5Sv2sqCPg4oz4Sv8UJq/A==
+next@^9.0.9-canary.0:
+  version "9.0.9-canary.0"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.0.9-canary.0.tgz#dbe804f8d448a7e41f39010e06a348eb13da3750"
+  integrity sha512-rwGhoHj8XLpCj2IixpqsAqbjkxa2ead7OvOUpVjMlbg6lgq+POAtL1eLJOcydS8+5UPo0en/bydUXUNXG2tKqw==
   dependencies:
     "@ampproject/toolbox-optimizer" "1.0.1"
     "@babel/core" "7.4.5"
@@ -3823,6 +3823,7 @@ next@^9.0.7-canary.4:
     jest-worker "24.9.0"
     launch-editor "2.2.1"
     loader-utils "1.2.3"
+    lru-cache "5.1.1"
     mini-css-extract-plugin "0.8.0"
     mkdirp "0.5.1"
     node-fetch "2.6.0"
