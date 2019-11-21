@@ -1,7 +1,4 @@
 import React from 'react'
-import normalize from 'normalize.css/normalize.css'
-
-import './styles/roboto.css'
 import Header from './header'
 import Footer from './footer'
 import theme from './styles/theme'
@@ -14,9 +11,6 @@ const Layout = ({ children }) => (
 
     <Footer />
 
-    <style jsx global>
-      {normalize}
-    </style>
     <style jsx global>{`
       * {
         box-sizing: border-box;

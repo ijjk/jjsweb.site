@@ -46,7 +46,7 @@ const Header = () => {
             <a className="logo">
               <span className="hidden">JK logo</span>
               <span onClick={collapseNav}>
-                <Logo height={50} />
+                <Logo />
               </span>
             </a>
           </Link>

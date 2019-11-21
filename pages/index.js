@@ -21,7 +21,9 @@ const Index = () => (
       </h2>
 
       <Link href="/projects">
-        <button className="btn">See Projects</button>
+        <a>
+          <button className="btn">See Projects</button>
+        </a>
       </Link>
     </div>
   </Layout>

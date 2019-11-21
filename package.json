@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "next": "^9.1.4-canary.4",
-    "normalize.css": "^8.0.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
