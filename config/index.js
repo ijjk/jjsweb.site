@@ -1,4 +1,5 @@
 import Github from '../components/svgs/github'
+import Twitter from '../components/svgs/twitter'
 import Linkedin from '../components/svgs/linkedin'
 import Envelope from '../components/svgs/envelope'
 
@@ -11,6 +12,11 @@ export const socials = [
     Icon: Github,
     alt: 'my github',
     link: 'https://github.com/ijjk',
+  },
+  {
+    Icon: Twitter,
+    alt: 'my twitter',
+    link: 'https://twitter.com/_ijjk',
   },
   {
     Icon: Linkedin,
