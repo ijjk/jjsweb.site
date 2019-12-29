@@ -41,11 +41,6 @@ export default {
     name: 'STUDENTLIFE',
     projKey: 'studentlife',
     repo: 'https://github.com/ijjk/studentlife',
-    demo: 'https://sl.jjsweb.site',
-    login: {
-      Username: 'admin',
-      Password: 'pass',
-    },
     blurb:
       'STUDENTLIFE is a school based social network to get updated on news from other students and teachers, and to access opportunities and resources.',
     stack: [react, redux, mongo, socketIO, feathers],
