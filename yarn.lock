@@ -1215,10 +1215,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@next/polyfill-nomodule@9.2.3-canary.25":
-  version "9.2.3-canary.25"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-nomodule/-/polyfill-nomodule-9.2.3-canary.25.tgz#eaafc29b72fe32c3d55c80ea609977fb5b101e46"
-  integrity sha512-lSkejD/Tsh/6vLxnXle27UuZVwj/vDX8f6hWUoIO4vDuEO27PT6qYbCSKtEHq6FIWIrfzCsuVvRnAjUcT1x75Q==
+"@next/polyfill-nomodule@9.2.3-canary.26":
+  version "9.2.3-canary.26"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-nomodule/-/polyfill-nomodule-9.2.3-canary.26.tgz#12dd27014f5f919c7d19d9019a0201a8cf68c0f4"
+  integrity sha512-YW8AB2z2NLHMBOqa/agzrv7AD1tUJMQu77vNXwCNRCbxhEM81Kq5GVzCDXQIG717PH38/fi9z62I4zaX8xe5hQ==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -4513,10 +4513,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next@^9.2.3-canary.25:
-  version "9.2.3-canary.25"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.2.3-canary.25.tgz#cf9062ec89786bbb625ad08a854a3fd6854f60ab"
-  integrity sha512-zzbihP+xawCqHBmVZZnOIUvptw3gbDe7f6GaYS5wnjy9vDJleKPbda5Yo0eC6JV0DTOZQKKKfNHw5m71epEEWg==
+next@^9.2.3-canary.26:
+  version "9.2.3-canary.26"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.2.3-canary.26.tgz#3c34667b7a6e4dc4c70ab6e7188ed7c2213ae785"
+  integrity sha512-5IzKvwr0s3mX/siYoA9fFZuMZBz50aeho7cKxFGu8Ty3+qrcuf0Ooh8r9w7/yh4eEp4Gcfr+GoOnQaOTEsEcIg==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.0.0"
     "@babel/core" "7.7.2"
@@ -4534,7 +4534,7 @@ next@^9.2.3-canary.25:
     "@babel/preset-typescript" "7.7.2"
     "@babel/runtime" "7.7.2"
     "@babel/types" "7.7.4"
-    "@next/polyfill-nomodule" "9.2.3-canary.25"
+    "@next/polyfill-nomodule" "9.2.3-canary.26"
     amphtml-validator "1.0.30"
     async-retry "1.2.3"
     async-sema "3.0.0"
