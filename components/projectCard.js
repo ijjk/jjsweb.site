@@ -10,7 +10,7 @@ const ProjectCard = ({ projKey, name, stack, idx }) => (
     <div>
       <div className="name">
         <h4>{name}</h4>
-        <Link href={`/projects/${projKey}`}>
+        <Link href="/projects/[project]" as={`/projects/${projKey}`}>
           <a>
             Learn more<span className="hidden"> about {name}</span>
           </a>
