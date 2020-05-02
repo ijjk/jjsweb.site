@@ -26,7 +26,7 @@
     ]
   },
   "dependencies": {
-    "next": "^9.3.5",
+    "next": "^9.3.6",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
