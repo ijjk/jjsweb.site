@@ -121,7 +121,6 @@ const ContactPage = () => {
             <blockquote>
               If you build it they will come, <br />
               if you build it well they will come back <br />
-              <br />- Anonymous
             </blockquote>
           </div>
         </div>
