@@ -67,3 +67,4 @@ yarn-error.log
 # build output
 dist
 .next
+.vercel
