@@ -22,4 +22,6 @@ export const getStaticPaths = () => {
   }
 }
 
-export default ({ projectProps }) => <ProjectPage {...projectProps} />
+export default function Project({ projectProps }) {
+  return <ProjectPage {...projectProps} />
+}
