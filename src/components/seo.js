@@ -8,7 +8,8 @@ function SEO({ description, meta, keywords, title }) {
     <Head>
       <title>
         {title}
-        {title ? ' | ' : ''}JJ's website
+        {title ? ' | ' : ''}
+        {`JJ's website`}
       </title>
       <link
         rel="apple-touch-icon"

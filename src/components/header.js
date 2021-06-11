@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import ExtLink from './extLink'
-import Logo from './svgs/logo'
+import Logo from './logo'
 import headerStyles from './header.style'
 import Caret from './svgs/caret-down'
 import { pathPrefix, navItems, socials } from '../config'
