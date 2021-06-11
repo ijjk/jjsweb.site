@@ -19,7 +19,7 @@ const glamor = stackItem('glamor', 'https://github.com/threepointone/glamor')
 const gatsby = stackItem('Gatsby', 'https://github.com/gatsbyjs/gatsby')
 
 // projects
-export default {
+const config = {
   order: ['mykb', 'studentlife', 'sdsrf', 'countdowns'],
 
   mykb: {
@@ -68,3 +68,11 @@ export default {
     screens: ['edit.jpg', 'create.jpg', 'countdowns.jpg', 'dialog.jpg'],
   },
 }
+
+config.order.forEach(item => {
+  config[item].screens = config[item].screens.map(screen => {
+    return require(`../../public/projects/${item}/${screen}`).default
+  })
+})
+
+export default config

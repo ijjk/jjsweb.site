@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Chevron from './svgs/chevron-left'
+import Image from 'next/image'
 
 const fadeLength = 400 // in milliseconds
 
@@ -10,7 +11,6 @@ class Slideshow extends Component {
   }
 
   updSlide = (advance, nextIdx) => {
-    clearTimeout(this.timeout)
     const { active } = this.state
     const numImgs = this.props.imgs.length
 
@@ -23,13 +23,7 @@ class Slideshow extends Component {
     } else if (nextIdx < 0) {
       nextIdx = numImgs - 1
     }
-    this.setState({ opacity: 0 })
-    this.timeout = setTimeout(() => {
-      this.setState({ active: nextIdx })
-      this.timeout = setTimeout(() => {
-        this.setState({ opacity: 1 })
-      }, 50)
-    }, fadeLength)
+    this.setState({ active: nextIdx })
   }
   prev = () => this.updSlide()
   next = () => this.updSlide(true)
@@ -51,23 +45,7 @@ class Slideshow extends Component {
             style={{ left: 10 }}
           />
 
-          <img
-            key={active}
-            src={imgs[active]}
-            style={{
-              opacity,
-            }}
-          />
-          {/* load possible next image for smoother transition */}
-          <img
-            key={next}
-            src={imgs[next]}
-            style={{
-              width: 0,
-              height: 0,
-              opacity: 0,
-            }}
-          />
+          <Image key={active} src={imgs[active]} placeholder="blur" />
 
           <div className="blur right" />
           <Chevron
@@ -105,7 +83,6 @@ class Slideshow extends Component {
           }
 
           div img {
-            transition: opacity ${fadeLength}ms ease-in-out;
             max-height: 400px;
             max-width: 800px;
             width: 100%;

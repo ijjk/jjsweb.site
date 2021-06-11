@@ -16,8 +16,6 @@ export default function ProjectPage({
   repo,
   stack,
 }) {
-  screens = [...screens].map(screen => `${thumbsPath}${projKey}/${screen}`)
-
   return (
     <Layout>
       <SEO title={name} keywords={stack.map(s => s.name)} />

@@ -1,11 +1,18 @@
 import React from 'react'
 import Link from 'next/link'
-import { thumbsPath } from '../config'
+import Image from 'next/image'
 import ExtLink from '../components/extLink'
 
-const ProjectCard = ({ projKey, name, stack, idx }) => (
+const ProjectCard = ({ projKey, name, screens, stack, idx }) => (
   <div className="card" style={{ animationDelay: idx * 150 + 'ms' }}>
-    <img src={`${thumbsPath}${projKey}/thumb.jpg`} className="thumb" />
+    <div className="thumb">
+      <Image
+        src={screens[0]}
+        placeholder="blur"
+        width={screens[0].width / 5}
+        height={screens[0].height / 5}
+      />
+    </div>
 
     <div>
       <div className="name">
@@ -46,7 +53,8 @@ const ProjectCard = ({ projKey, name, stack, idx }) => (
         box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.25);
       }
 
-      .card .thumb {
+      .card .thumb,
+      .card .thumb > :global(div) {
         width: 100%;
         height: 200px;
         border-top-left-radius: 6px;
