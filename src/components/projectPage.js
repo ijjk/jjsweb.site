@@ -1,10 +1,8 @@
 import React from 'react'
 
 import SEO from './seo'
-import Layout from './layout'
 import ExtLink from './extLink'
 import Slideshow from './slideshow'
-import { thumbsPath } from '../config'
 
 export default function ProjectPage({
   blurb,
@@ -12,12 +10,11 @@ export default function ProjectPage({
   login,
   name,
   screens,
-  projKey,
   repo,
   stack,
 }) {
   return (
-    <Layout>
+    <>
       <SEO title={name} keywords={stack.map(s => s.name)} />
 
       <div className="fill">
@@ -84,6 +81,6 @@ export default function ProjectPage({
           margin-left: 0;
         }
       `}</style>
-    </Layout>
+    </>
   )
 }

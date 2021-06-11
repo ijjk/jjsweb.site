@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 import SEO from '../components/seo'
-import Layout from '../components/layout'
 
 const Field = ({ label, placeholder, type, ...props }) => {
   const isTextarea = type === 'textarea'
@@ -70,7 +69,7 @@ const ContactPage = () => {
   }
 
   return (
-    <Layout>
+    <>
       <SEO title="Contact" />
 
       <div className="fill">
@@ -235,7 +234,7 @@ const ContactPage = () => {
           }
         }
       `}</style>
-    </Layout>
+    </>
   )
 }
 

@@ -100,7 +100,6 @@ class Slideshow extends Component {
             position: absolute;
             top: 0;
             bottom: 0;
-            transition: opacity 150ms ease;
           }
 
           div :global(.chevron:hover) {
@@ -126,7 +125,6 @@ class Slideshow extends Component {
             border-radius: 6px;
             display: inline-block;
             background: #000000;
-            transition: all 250ms ease;
             box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.25);
           }
 

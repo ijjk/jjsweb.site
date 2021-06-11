@@ -43,13 +43,11 @@ const ProjectCard = ({ projKey, name, screens, stack, idx }) => (
       }
 
       .card {
-        opacity: 0;
         width: 95%;
         max-width: 375px;
         margin: 25px 10px;
         border-radius: 6px;
         background: #ffffff;
-        animation: appear 700ms ease forwards;
         box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.25);
       }
 

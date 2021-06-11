@@ -2,10 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 
 import SEO from '../components/seo'
-import Layout from '../components/layout'
 
 const Index = () => (
-  <Layout>
+  <>
     <SEO title="Home" />
 
     <div className="fill v-middle-align">
@@ -26,7 +25,7 @@ const Index = () => (
         </a>
       </Link>
     </div>
-  </Layout>
+  </>
 )
 
 export default Index

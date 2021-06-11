@@ -2,11 +2,10 @@ import React from 'react'
 
 import SEO from '../../components/seo'
 import projects from '../../config/projects'
-import Layout from '../../components/layout'
 import ProjectCard from '../../components/projectCard'
 
 const Projects = () => (
-  <Layout>
+  <>
     <SEO title="Projects" />
 
     <div className="fill">
@@ -33,7 +32,7 @@ const Projects = () => (
         justify-content: space-evenly;
       }
     `}</style>
-  </Layout>
+  </>
 )
 
 export default Projects
