@@ -3,12 +3,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ExtLink from '../components/extLink'
 
-const ProjectCard = ({ projKey, name, screens, stack, idx }) => (
+const ProjectCard = ({ projKey, name, screens, screenAlts, stack, idx }) => (
   <div className="card" style={{ animationDelay: idx * 150 + 'ms' }}>
     <div className="thumb">
       <Image
         src={screens[0]}
         placeholder="blur"
+        alt={screenAlts[0]}
         width={screens[0].width / 5}
         height={screens[0].height / 5}
       />

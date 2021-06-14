@@ -10,6 +10,7 @@ export default function ProjectPage({
   login,
   name,
   screens,
+  screenAlts,
   repo,
   stack,
 }) {
@@ -20,7 +21,7 @@ export default function ProjectPage({
       <div className="fill">
         <div className="constrain">
           <h3>{name}</h3>
-          <Slideshow imgs={screens} />
+          <Slideshow imgs={screens} imgAlts={screenAlts} />
           <div className="info">
             <p>{blurb}</p>
 

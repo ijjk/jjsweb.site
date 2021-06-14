@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Chevron from './svgs/chevron-left'
 import Image from 'next/image'
 
-const fadeLength = 400 // in milliseconds
-
 class Slideshow extends Component {
   state = {
     active: 0,
@@ -31,9 +29,8 @@ class Slideshow extends Component {
   componentWillUnmount = () => clearTimeout(this.timeout)
 
   render() {
-    const { className, imgs } = this.props
-    const { active, opacity } = this.state
-    const next = active < imgs.length - 1 ? active + 1 : 0
+    const { className, imgs, imgAlts } = this.props
+    const { active } = this.state
 
     return (
       <div className="wrap-slideshow">
@@ -45,7 +42,12 @@ class Slideshow extends Component {
             style={{ left: 10 }}
           />
 
-          <Image key={active} src={imgs[active]} placeholder="blur" />
+          <Image
+            key={active}
+            src={imgs[active]}
+            placeholder="blur"
+            alt={imgAlts[active]}
+          />
 
           <div className="blur right" />
           <Chevron

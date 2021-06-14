@@ -35,6 +35,7 @@ const config = {
       'MYKB is a file system/markdown based knowledge base editor/viewer. MYKB helps manage personal markdown based docs in a webui with automatic git committing.',
     stack: [styledJsx, react, nextJs, express, markdown],
     screens: ['home.jpg', 'doc.jpg', 'edit.jpg', 'new.jpg'],
+    screenAlts: ['home view', 'doc view', 'edit view', 'new view'],
   },
 
   studentlife: {
@@ -45,6 +46,12 @@ const config = {
       'STUDENTLIFE is a school based social network to get updated on news from other students and teachers, and to access opportunities and resources.',
     stack: [react, redux, mongo, socketIO, feathers],
     screens: ['landing.jpg', 'home.jpg', 'resources.jpg', 'admin-panel.jpg'],
+    screenAlts: [
+      'landing view',
+      'home view',
+      'resources view',
+      'admin panel view',
+    ],
   },
 
   sdsrf: {
@@ -56,6 +63,12 @@ const config = {
       'SDS Research Fund is a non-profit that hopes to increase the funds being raised for research towards a cure for Shwachman Diamond Syndrome.',
     stack: [react, gatsby, glamor, markdown],
     screens: ['home.jpg', 'board.jpg', 'blog.jpg', 'member-sign-up.jpg'],
+    screenAlts: [
+      'home view',
+      'board members view',
+      'blog view',
+      'sign up view',
+    ],
   },
 
   countdowns: {
@@ -66,6 +79,7 @@ const config = {
       'Countdowns is a customizable countdowns app that helps you keep track of the amount of time until a certain date.',
     stack: [electron, vanillaJS],
     screens: ['edit.jpg', 'create.jpg', 'countdowns.jpg', 'dialog.jpg'],
+    screenAlts: ['edit view', 'create view', 'countdowns view', 'dialog view'],
   },
 }
 
