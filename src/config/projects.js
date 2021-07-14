@@ -26,11 +26,7 @@ const config = {
     name: 'MYKB',
     projKey: 'mykb',
     repo: 'https://github.com/ijjk/mykb',
-    demo: 'https://mykb.jjsweb.site',
-    login: {
-      Username: 'admin',
-      Password: 'secretpass',
-    },
+    demo: '',
     blurb:
       'MYKB is a file system/markdown based knowledge base editor/viewer. MYKB helps manage personal markdown based docs in a webui with automatic git committing.',
     stack: [styledJsx, react, nextJs, express, markdown],
@@ -57,7 +53,7 @@ const config = {
   sdsrf: {
     projKey: 'sdsrf',
     name: 'SDS Research Fund',
-    demo: 'https://sdsrf.jjsweb.site',
+    demo: '',
     repo: 'https://github.com/ijjk/sdsrf',
     blurb:
       'SDS Research Fund is a non-profit that hopes to increase the funds being raised for research towards a cure for Shwachman Diamond Syndrome.',
