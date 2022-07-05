@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint && prettier --write .",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
-  "pre-commit": "lint-staged",
   "dependencies": {
     "next": "12.1.7-canary.52",
     "react": "18.2.0",
@@ -22,9 +22,9 @@
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.7-canary.48",
     "lint-staged": "^13.0.3",
-    "pre-commit": "^1.2.2",
     "prettier": "^2.7.1",
     "shell-quote": "^1.7.3",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "husky": "^8.0.0"
   }
 }
