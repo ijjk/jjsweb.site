@@ -11,7 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "next": "12.1.7-canary.52",
+    "next": "12.2.3-canary.17",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -21,10 +21,10 @@
     "@types/react-dom": "18.0.5",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.7-canary.48",
+    "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "shell-quote": "^1.7.3",
-    "typescript": "4.7.4",
-    "husky": "^8.0.0"
+    "typescript": "4.7.4"
   }
 }
