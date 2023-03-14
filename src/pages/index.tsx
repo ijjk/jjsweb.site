@@ -1,5 +1,5 @@
 import { PageConfig } from 'next'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import styles from '../styles/home.module.css'
 import logo from '../../public/android-chrome-192x192.png'
 import { ExternalLink } from '../components/external-link'
