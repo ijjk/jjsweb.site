@@ -11,7 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "next": "13.2.5-canary.3",
+    "next": "16.0.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
